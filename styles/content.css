@@ -1,0 +1,16 @@
+.nuxt-content h2 > a:first-child:before,
+.nuxt-content h3 > a:first-child:before {
+  @apply text-blue-600 text-xl leading-6 font-light;
+  content: "#";
+  margin-left: -1.25rem;
+  padding-right: 0.5rem;
+  position: absolute;
+  visibility: hidden;
+}
+.nuxt-content h2 > a:first-child:before {
+  @apply leading-8;
+}
+.nuxt-content h2:hover a:first-child:before,
+.nuxt-content h3:hover a:first-child:before {
+  visibility: visible;
+}
