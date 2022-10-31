@@ -2,6 +2,7 @@ import { last } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react"
+import { getPath } from "../lib/util";
 
 const Sidebar = ({ info }) => {
     const router = useRouter()
@@ -18,6 +19,11 @@ const Sidebar = ({ info }) => {
         if (!info || !Array.isArray(info)) {
             return
         }
+        const path = getPath(router.asPath)
+        console.log(path);
+        const indexCatagory = info.findIndex(item => path.endsWith(item.path) && item.path != "");
+        console.log(indexCatagory);
+        setCurrentSelect(info[indexCatagory]['title'])
         const tree_info = {
             path: "",
             title: "",
@@ -61,8 +67,6 @@ const Sidebar = ({ info }) => {
         setTreeList(tree_info)
     }, [router.asPath])
     const handleClick = (title) => {
-        console.log(title);
-        setCurrentSelect(title)
         let iExpand = [...expand_list]
         let index = iExpand.indexOf(title)
         if (index > -1) {
@@ -70,7 +74,6 @@ const Sidebar = ({ info }) => {
         } else {
             iExpand.push(title)
         }
-        console.log(current_select);
         setExpandList(iExpand)
     }
     const checkDis = (title) => {
@@ -188,7 +191,6 @@ const Sidebar = ({ info }) => {
                     )
                 })
             }
-
         </div >
     )
 }

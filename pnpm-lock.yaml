@@ -14,6 +14,7 @@ specifiers:
   micromark: ^3.1.0
   mobx: ^6.6.2
   mobx-react: ^7.5.3
+  moment: ^2.29.4
   next: 12.3.1
   postcss: ^8.4.18
   react: 18.2.0
@@ -30,6 +31,7 @@ dependencies:
   micromark: registry.npmmirror.com/micromark/3.1.0
   mobx: registry.npmmirror.com/mobx/6.6.2
   mobx-react: registry.npmmirror.com/mobx-react/7.5.3_qrr2ojv4n7h7ey2xj7njerqqr4
+  moment: registry.npmmirror.com/moment/2.29.4
   next: registry.npmmirror.com/next/12.3.1_biqbaboplfbrettd7655fr4n2y
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
@@ -2486,6 +2488,12 @@ packages:
     resolution: {integrity: sha512-IOpS0bf3+hXIhDIy+CmlNMBfFpAbHS0aVHcNC+xH/TFYEKIIVDKNYRh9eKlXuVfJ1iRKAp0cRVmO145CyJAMVQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mobx/-/mobx-6.6.2.tgz}
     name: mobx
     version: 6.6.2
+    dev: false
+
+  registry.npmmirror.com/moment/2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/moment/-/moment-2.29.4.tgz}
+    name: moment
+    version: 2.29.4
     dev: false
 
   registry.npmmirror.com/mri/1.2.0:

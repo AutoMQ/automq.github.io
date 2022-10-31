@@ -1,5 +1,9 @@
 ---
 title: Deploy to Production
+author: Mila
+published_at: 2022/06/30 17:30:30
+feature_image: /static/blog/how-to-install-mysql-shell-on-macos/mysql-mac.webp
+tags: Education
 ---
 
 **Latest release version:** [**%%bb_version%%**](https://github.com/bytebase/bytebase/releases/latest)

@@ -1,7 +1,7 @@
 // import Breadcrumb from '../../../components/breadcrumb';
 import { getFileIds, getFileData, getSideBar } from '../../../lib/posts-md';
 // post directory
-const postsDir = 'content';
+const postsDir = 'content/docs';
 // dynamic route IDs
 export async function getStaticPaths() {
     const
@@ -14,12 +14,9 @@ export async function getStaticPaths() {
                 }
             }
             );
-    paths.forEach(item => {
-        console.log(item);
-    })
     return {
         paths,
-        fallback: true,
+        fallback: false,
     };
 }
 // dynamic route content

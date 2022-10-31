@@ -47,7 +47,7 @@ const Toc = (props) => {
     }, [router.asPath])
     return (
         toc.length > 0 && (
-            <aside className="hidden xl:flex flex-col justify-start items-start sticky w-52 top-0 pb-36 right-6 2xl:right-10 pr-4 h-full max-h-screen flex-shrink-0 overflow-x-hidden overflow-y-auto text-sm">
+            <aside className="hidden xl:flex flex-col justify-start items-start sticky w-52 top-0 pb-36 right-6 2xl:right-10 pr-4 h-full max-h-screen flex-shrink-0 overflow-x-hidden overflow-y-auto text-sm md:flex">
                 <span className="text-black pb-2 pl-4 border-l border-gray-200 truncate">
                     Table of Contents
                 </span>
