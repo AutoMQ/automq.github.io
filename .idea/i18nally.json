@@ -1,0 +1,49 @@
+{
+  "version" : "1.2",
+  "profiles" : [ {
+    "id" : "c05df124-b3b0-4f53-ae04-f25a87ea1b6d",
+    "name" : "React-i18n",
+    "keyNamingPattern" : "CAMEL_CASE_PATTERN",
+    "sink" : {
+      "id" : "11526240-b358-4af8-8658-5b9810d0e45f",
+      "type" : "namespaced",
+      "translationsDirectory" : "$PROJECT_DIR$/i18n",
+      "fileType" : "json",
+      "defaultLocale" : "en",
+      "namespaces" : [ "common.en" ],
+      "outputFilenameTemplate" : "%locale%/%namespace%.json",
+      "nestingType" : "DISABLED",
+      "placeholderFormatterName" : "I18NEXT"
+    },
+    "sources" : [ {
+      "id" : "bd715fca-6262-4238-b11b-d14677a07563",
+      "type" : "js",
+      "scopeName" : "Project Files",
+      "scopePattern" : "",
+      "defaultReplacementTemplate" : "t('%namespace%:%key%', %map%)",
+      "recognizedReplacementTemplates" : [ ],
+      "skipDefaultNamespace" : true
+    }, {
+      "id" : "d6e9ece1-34f2-48a6-a133-5dd0a756f8ac",
+      "type" : "jsx",
+      "scopeName" : "Project Files",
+      "scopePattern" : "",
+      "defaultReplacementTemplate" : "t('%namespace%:%key%', %map%)",
+      "attributeReplacementTemplate" : "",
+      "inlineTagsReplacementTemplate" : "",
+      "recognizedReplacementTemplates" : [ ],
+      "inlineTagNames" : [ "small", "tt", "big", "sub", "img", "strong", "code", "data", "samp", "wbr", "del", "slot", "sup", "br", "output", "abbr", "a", "b", "acronym", "bdi", "meter", "var", "em", "i", "label", "bdo", "kbd", "dfn", "ins", "ruby", "input", "q", "s", "u", "cite", "progress", "time", "mark", "span" ],
+      "translatableAttributeNames" : [ "alt", "placeholder", "label", "title", "aria-label" ],
+      "skipDefaultNamespace" : true,
+      "inlineTagHandler" : "I18NEXT"
+    } ]
+  } ],
+  "ignores" : {
+    "valuesInProject" : [ "use strict" ],
+    "valuesInFile" : { },
+    "filesInProject" : [ ],
+    "unignoredFunctionNames" : [ ],
+    "unignoredFunctionArguments" : { },
+    "ignoredArrayKeys" : [ "template", "date", "dateFormat", "el", "query", "type", "sql", "layout", "component", "condition", "name", "selector", "id", "class", "key", "middleware" ]
+  }
+}
