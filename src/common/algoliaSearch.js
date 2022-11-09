@@ -26,7 +26,7 @@ function collectHeadings(nodes) {
             let title = getNodeText(node)
             if (title) {
                 let id = slu(title)
-                node.attributes.id = slu(id,{lower:true})
+                node.attributes.id = slu(id)
                 if (node.name === 'h3') {
                     if (!sections[sections.length - 1]) {
                         throw new Error(

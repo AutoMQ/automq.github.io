@@ -14,6 +14,7 @@ import {en_navigation} from '@/constant/en/navigation'
 import {zh_navigation} from '@/constant/zh/navigation'
 import {useLanguageQuery} from "next-export-i18n";
 import Breadcrumbs from "@/components/docs/Breadcrumbs";
+import {sortBy} from "lodash";
 
 function GitHubIcon(props) {
     return (
@@ -72,7 +73,7 @@ function Header({navigation}) {
 }
 
 function flat(item, res = []) {
-    item?.map(oneDoc => {
+    sortBy(item,(o) => o.rank)?.map(oneDoc => {
         if (oneDoc.hasOwnProperty("href")) {
             res.push(oneDoc)
         }

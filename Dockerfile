@@ -14,14 +14,6 @@ RUN \
 
 COPY . .
 
-WORKDIR src/common
-
-RUN node getFileTree.js
-
-RUN node algoliaSearch.js
-
-RUN npm run build
-
 RUN npm run export
 
 
