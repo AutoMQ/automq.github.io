@@ -9,11 +9,11 @@ import {Navigation} from '@/components/docs/Navigation'
 import {Prose} from '@/components/docs/Prose'
 import {Search} from '@/components/docs/Search'
 import Toc from "@/components/Toc";
-// import {navigation} from "@/constant/test";
 
 import {en_navigation} from '@/constant/en/navigation'
 import {zh_navigation} from '@/constant/zh/navigation'
 import {useLanguageQuery} from "next-export-i18n";
+import Breadcrumbs from "@/components/docs/Breadcrumbs";
 
 function GitHubIcon(props) {
     return (
@@ -80,7 +80,6 @@ function flat(item, res = []) {
             flat(oneDoc.links).map(one => res.push(one))
         }
     })
-
     return res;
 }
 
@@ -118,14 +117,15 @@ export default function Layout({children, title, tableOfContents}) {
                     </div>
                 </div>
                 <div className="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pr-0 lg:pl-8 xl:px-16">
+                    <Breadcrumbs nav={navigation}/>
                     <article>
                         {(title || section) && (
                             <header className="mb-9 space-y-1">
-                                {section && (
-                                    <p className="font-display text-sm font-medium text-sky-500">
-                                        {section.title}
-                                    </p>
-                                )}
+                                {/*{section && (*/}
+                                {/*    <p className="font-display text-sm font-medium text-sky-500">*/}
+                                {/*        {section.title}*/}
+                                {/*    </p>*/}
+                                {/*)}*/}
                                 {title && (
                                     <h1 className="font-display text-3xl tracking-tight text-slate-900">
                                         {title}

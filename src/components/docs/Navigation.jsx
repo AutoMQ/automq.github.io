@@ -7,25 +7,30 @@ import Link from "@/components/Link";
 import {sortBy} from "lodash";
 
 
-function getNavigation(navigation, pathname, list = [], handleClick,level) {
-    return sortBy(navigation,(o) => o.rank).map((item) => {
+function getNavigation(navigation, pathname, list = [], handleClick, level) {
+    return sortBy(navigation, (o) => o.rank).map((item) => {
         if (item.hasOwnProperty("links")) {
             return (
                 <ul key={item.title}
                     role="list"
                     className={`mt-2 space-y-2 lg:mt-4 lg:space-y-4 lg:border-slate-200 list-none pl-2`}>
                     <div
-                        onClick={() => handleClick(item)}
                         className={clsx(`flex flex-row justify-between cursor-pointer text-slate-900`,
-                        item.hasOwnProperty('href') && item.href === pathname ?
-                            "font-semibold text-sky-500"
-                            : "hover:text-blue-400"
-                    )}>
-                        <span className="truncate w-2/3">
+                            item.hasOwnProperty('href') && item.href === pathname ?
+                                "font-semibold text-sky-500"
+                                : "hover:text-blue-400"
+                        )}>
+                        <Link
+                            href={item.href}
+                            className="truncate w-2/3"
+                        >
                             {item.title}
-                        </span>
+                        </Link>
                         <span
-                            onClick={(e) => e.stopPropagation()}
+                            onClick={(e) => {
+                                handleClick(item)
+                                e.stopPropagation()
+                            }}
                             className="flex-shrink-0 h-6 mr-5 flex flex-row justify-center items-center cursor-pointer select-none">
                             <Image
                                 className={clsx('relative w-4 h-auto transition-all opacity-60 ',
@@ -36,7 +41,7 @@ function getNavigation(navigation, pathname, list = [], handleClick,level) {
                             />
                         </span>
                     </div>
-                    {list.includes(item.title) && getNavigation(item.links, pathname, list, handleClick,level + 4)}
+                    {list.includes(item.title) && getNavigation(item.links, pathname, list, handleClick, level + 4)}
                 </ul>
             )
         } else {
@@ -76,7 +81,7 @@ export function Navigation({navigation, className}) {
     return (
         <nav className={clsx('text-base lg:text-sm', className)}>
             <ul role="list" className="space-y-4  list-none">
-                {getNavigation(navigation, router.pathname, expand, handleClick,0)}
+                {getNavigation(navigation, router.pathname, expand, handleClick, 0)}
             </ul>
         </nav>
     )

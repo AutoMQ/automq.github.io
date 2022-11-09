@@ -1,25 +1,28 @@
-import { ChevronRightIcon } from '@heroicons/react/20/solid'
-import { Bars4Icon, BookmarkSquareIcon, BookOpenIcon, RssIcon } from '@heroicons/react/24/outline'
-import { social } from "@/common/social";
+import {ChevronRightIcon} from '@heroicons/react/20/solid'
+import {Bars4Icon, BookmarkSquareIcon, BookOpenIcon, RssIcon} from '@heroicons/react/24/outline'
+import {social} from "@/common/social";
 import Link from '../components/Link'
+import {useLanguageQuery} from "next-export-i18n";
+
 const links = [
     {
         title: 'Documentation',
         description: 'Learn how to integrate our tools with your app',
-        link: '/zh/docs/installation',
+        link: '/getting-started',
         icon: BookOpenIcon
     },
-    { title: 'API Reference', description: 'A complete API reference for our libraries', link: '/', icon: Bars4Icon },
+    {title: 'API Reference', description: 'A complete API reference for our libraries', link: '/', icon: Bars4Icon},
     {
         title: 'Guides',
         description: 'Installation guides that cover popular setups',
-        link: '#',
+        link: '/',
         icon: BookmarkSquareIcon
     },
-    { title: 'Blog', description: 'Read our latest news and articles', link: '/blog', icon: RssIcon },
+    {title: 'Blog', description: 'Read our latest news and articles', link: '/blog', icon: RssIcon},
 ]
 
 export default function ErrorPage(props) {
+    const [query] = useLanguageQuery();
     return (
         <div className="bg-white">
             <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -46,15 +49,17 @@ export default function ErrorPage(props) {
                                     <div className="flex-shrink-0">
                                         <span
                                             className="flex h-12 w-12 items-center justify-center rounded-lg bg-indigo-50">
-                                            <link.icon className="h-6 w-6 text-indigo-700" aria-hidden="true" />
+                                            <link.icon className="h-6 w-6 text-indigo-700" aria-hidden="true"/>
                                         </span>
                                     </div>
                                     <div className="min-w-0 flex-1">
                                         <h3 className="text-base font-medium text-gray-900">
                                             <span
                                                 className="rounded-sm focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2">
-                                                <Link href={link.link} className="focus:outline-none">
-                                                    <span className="absolute inset-0" aria-hidden="true" />
+                                                <Link
+                                                    href={linkIdx === 0 ? `/docs/${query?.lang ? query.lang : 'zh'}${link.link}` : link.link}
+                                                    className="focus:outline-none">
+                                                    <span className="absolute inset-0" aria-hidden="true"/>
                                                     {link.title}
                                                 </Link>
                                             </span>
@@ -62,7 +67,7 @@ export default function ErrorPage(props) {
                                         <p className="text-base text-gray-500">{link.description}</p>
                                     </div>
                                     <div className="flex-shrink-0 self-center">
-                                        <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                                        <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
                                     </div>
                                 </li>
                             ))}
@@ -83,7 +88,7 @@ export default function ErrorPage(props) {
                         {social.map((item, itemIdx) => (
                             <a key={itemIdx} href={item.href} className="inline-flex text-gray-400 hover:text-gray-500">
                                 <span className="sr-only">{item.name}</span>
-                                <item.icon className="h-6 w-6" aria-hidden="true" />
+                                <item.icon className="h-6 w-6" aria-hidden="true"/>
                             </a>
                         ))}
                     </div>

@@ -8,8 +8,6 @@ const lodash = require('lodash')
 
 const INPUT_FILE_EN = '../pages/docs/en'
 
-const OUT_FILE = 'result.txt'
-
 function getNodeText(node) {
     let text = ''
     for (let child of node.children ?? []) {

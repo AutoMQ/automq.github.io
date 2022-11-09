@@ -10,7 +10,6 @@ const OUTPUT_FILE_EN = '../constant/en/navigation.js'
 let fileTree_zh = []
 let fileTree_en = []
 
-
 function fileDisplay(dirPath, arr) {
     let filesList = fs.readdirSync(dirPath);
     let count = 0;
