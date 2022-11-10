@@ -5,7 +5,7 @@ import {postTagStyle} from "@/common/util";
 
 function OneBlog({info}) {
     return (
-        <div key={info.href} className="flex flex-col overflow-hidden rounded-lg shadow-lg">
+        <div key={info.href} className="flex flex-col overflow-hidden rounded-lg shadow-lg dark:bg-slate-700 dark:border">
             {
                 info?.feature_image && (
                     <div className="flex-shrink-0">

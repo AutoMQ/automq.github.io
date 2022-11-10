@@ -15,7 +15,7 @@ export function Footer() {
                             Object.keys(foot_object).map(item => {
                                 return (
                                     <div key={item}>
-                                        <h3 className="text-base font-medium text-white">{item}</h3>
+                                        <h3 className="text-base font-medium text-black dark:text-white">{item}</h3>
                                         <ul role="list" className="mt-4 space-y-4">
                                             {
                                                 foot_object[item].map(one => {

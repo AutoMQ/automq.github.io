@@ -39,7 +39,7 @@
     } ]
   } ],
   "ignores" : {
-    "valuesInProject" : [ "use strict" ],
+    "valuesInProject" : [ "use strict", "Documentation", "${numFormat.format(mins)} minutes read", "bg-indigo-100 text-indigo-800" ],
     "valuesInFile" : { },
     "filesInProject" : [ ],
     "unignoredFunctionNames" : [ ],

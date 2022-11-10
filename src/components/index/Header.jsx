@@ -1,4 +1,4 @@
-import {Fragment, useEffect, useState} from 'react'
+import {Fragment} from 'react'
 import {Popover, Transition} from '@headlessui/react'
 import clsx from 'clsx'
 
@@ -9,7 +9,6 @@ import {useRouter} from "next/router";
 
 import {LanguageSwitcher, useLanguageQuery, useTranslation} from "next-export-i18n";
 import Link from '../Link'
-
 function MobileNavLink({href, children}) {
     return (
         <Link href={href} className={"block w-full p-2 hover:text-blue-400"}>
@@ -99,7 +98,7 @@ export function Header() {
     const {t} = useTranslation()
     const [query] = useLanguageQuery();
     return (
-        <header className="py-10">
+        <header className="py-6 bg-black dark:bg-black">
             <Container>
                 <nav className="relative z-50 flex justify-between">
                     <div className="flex items-center md:gap-x-12">
@@ -118,12 +117,12 @@ export function Header() {
                     <div className="flex items-center gap-x-5 md:gap-x-8">
                         <div className="hidden md:block">
                             <LanguageSwitcher lang={'zh'}>
-                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:bg-slate-100 hover:text-slate-900 dark:text-white dark:hover:bg-slate-600")}>简体中文</span>
+                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:bg-slate-100 text-white hover:bg-slate-600")}>简体中文</span>
                             </LanguageSwitcher>
                         </div>
                         <div>
                             <LanguageSwitcher lang={'en'}>
-                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:bg-slate-100 hover:text-slate-900 dark:text-white dark:hover:bg-slate-600")}>English</span>
+                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:text-slate-900 text-white hover:bg-slate-600")}>English</span>
                             </LanguageSwitcher>
                         </div>
                         <div className="-mr-1 md:hidden">

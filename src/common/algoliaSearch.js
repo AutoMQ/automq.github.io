@@ -1,4 +1,4 @@
-const algoliasearch = require('algoliasearch')
+const algoliaSearch = require('algoliasearch')
 const fs = require('fs')
 const path = require('path')
 const fm = require('front-matter')
@@ -30,9 +30,6 @@ function collectHeadings(nodes) {
                 if (node.name === 'h3') {
                     if (!sections[sections.length - 1]) {
                         continue
-                        // throw new Error(
-                        //     'Cannot add `h3` to table of contents without a preceding `h2`'
-                        // )
                     }
                     sections[sections.length - 1].children.push({
                         ...node.attributes,
@@ -56,7 +53,7 @@ function getObj(info, obj, level) {
         const iH = obj.hierarchy
         iH[key] = item.id
         const iObj = {...obj, hierarchy: iH,title:item.title}
-        algoliaSearch.push({...iObj, objectID: iObj.url + algoliaSearch.length, "type": type,"url":iObj.url + "#" + item.id})
+        algolia.push({...iObj, objectID: iObj.url + algoliaSearch.length, "type": type,"url":iObj.url + "#" + item.id})
         if (item.hasOwnProperty('children') && item.children.length > 0) {
             getObj(item.children, iObj, level + 1)
         }
@@ -118,16 +115,16 @@ function fileDisplay(dirPath) {
     }
 }
 
-let algoliaSearch = []
+let algolia = []
 fileDisplay(INPUT_FILE_EN, [])
-algoliaSearch = lodash.uniqBy(algoliaSearch,"url")
+algolia = lodash.uniqBy(algolia,"url")
 // Connect and authenticate with your Algolia app
-const client = algoliasearch('H615PFF29U', '7127b8019f7bc20fb9baed3e9e5cd3e9')
+const client = algoliaSearch('H615PFF29U', '7127b8019f7bc20fb9baed3e9e5cd3e9')
 
 // Create a new index and add a record
 const index = client.initIndex('test_index')
 index.clearObjects()
-index.saveObjects(algoliaSearch)
+index.saveObjects(algolia)
 
 
 

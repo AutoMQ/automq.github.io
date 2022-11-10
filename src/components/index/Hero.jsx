@@ -1,94 +1,87 @@
-import Image from 'next/future/image'
-
-import {Button} from '@/components/index/Button'
 import {Container} from '@/components/index/Container'
-import logoLaravel from '@/images/logos/laravel.svg'
-import logoMirage from '@/images/logos/mirage.svg'
-import logoStatamic from '@/images/logos/statamic.svg'
-import logoStaticKit from '@/images/logos/statickit.svg'
-import logoTransistor from '@/images/logos/transistor.svg'
-import logoTuple from '@/images/logos/tuple.svg'
 import {useTranslation} from 'next-export-i18n'
+import {ChevronUpDownIcon} from "@heroicons/react/24/outline";
 
 export function Hero() {
     const {t} = useTranslation()
     return (
-        <Container className="pt-20 pb-16 text-center lg:pt-32">
-            <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl dark:text-white">
-                Accounting{' '}
-                <span className="relative whitespace-nowrap text-blue-600">
-                  <svg
-                      aria-hidden="true"
-                      viewBox="0 0 418 42"
-                      className="absolute top-2/3 left-0 h-[0.58em] w-full fill-blue-300/70"
-                      preserveAspectRatio="none"
-                  >
-                    <path
-                        d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z"/>
-                  </svg>
-                  <span className="relative text-blue-600">
-                      {t("hi")}
-                  </span>
-                </span>
-                {' '}
-                for small businesses.
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700 dark:text-slate-300">
-                Most bookkeeping software is accurate, but hard to use. We make the
-                opposite trade-off, and hope you don’t get audited.
-            </p>
-            <div className="mt-10 flex justify-center gap-x-6">
-                <Button href="/register">Get 6 months free</Button>
-                <Button
-                    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                    variant="outline"
-                >
-                    <svg
-                        aria-hidden="true"
-                        className="h-3 w-3 flex-none fill-blue-600 group-active:fill-current"
-                    >
-                        <path
-                            d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z"/>
-                    </svg>
-                    <span className="ml-3">Watch video</span>
-                </Button>
-            </div>
-            <div className="mt-36 lg:mt-44">
-                <p className="font-display text-base text-slate-900 dark:text-slate-200">
-                    Trusted by these six companies so far
-                </p>
-                <ul
-                    role="list"
-                    className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
-                >
-                    {[
-                        [
-                            {name: 'Transistor', logo: logoTransistor},
-                            {name: 'Tuple', logo: logoTuple},
-                            {name: 'StaticKit', logo: logoStaticKit},
-                        ],
-                        [
-                            {name: 'Mirage', logo: logoMirage},
-                            {name: 'Laravel', logo: logoLaravel},
-                            {name: 'Statamic', logo: logoStatamic},
-                        ],
-                    ].map((group, groupIndex) => (
-                        <li key={groupIndex}>
-                            <ul
-                                role="list"
-                                className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0"
+        <div className=" bg-black pt-10 sm:pt-16 lg:overflow-hidden lg:pt-8 lg:pb-14">
+            <div className="mx-auto max-w-7xl lg:px-8">
+                <div className="lg:grid lg:grid-cols-2 lg:gap-8">
+                    <div
+                        className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:text-center lg:flex lg:items-center lg:px-0 lg:text-left">
+                        <div className="lg:py-24">
+                            <a
+                                href="#"
+                                className="inline-flex items-center rounded-full bg-black p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base"
                             >
-                                {group.map((company) => (
-                                    <li key={company.name}
-                                        className="cursor-pointer opacity-80 hover:opacity-100 flex transition-transform duration-300 hover:-translate-y-1 hover:scale-110">
-                                        <Image src={company.logo} alt={company.name} unoptimized/>
-                                    </li>
-                                ))}
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
+                                    <span
+                                        className="rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
+                                        We&lsquo;re hiring
+                                    </span>
+                                <span className="ml-4 text-sm">Visit our careers page</span>
+                                <ChevronUpDownIcon className="ml-2 h-5 w-5 text-gray-500" aria-hidden="true"/>
+                            </a>
+                            <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
+                                <span className="block">A better way to</span>
+                                <span
+                                    className="block bg-gradient-to-r from-teal-200 to-cyan-400 bg-clip-text pb-3 text-transparent sm:pb-5">
+                        ship web apps
+                      </span>
+                            </h1>
+                            <p className="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl">
+                                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat
+                                commodo. Elit
+                                sunt amet fugiat veniam occaecat fugiat.
+                            </p>
+                            <div className="mt-10 sm:mt-12">
+                                <form action="#" className="sm:mx-auto sm:max-w-xl lg:mx-0">
+                                    <div className="sm:flex">
+                                        <div className="min-w-0 flex-1">
+                                            <label htmlFor="email" className="sr-only">
+                                                Email address
+                                            </label>
+                                            <input
+                                                id="email"
+                                                type="email"
+                                                placeholder="Enter your email"
+                                                className="block w-full rounded-md border-0 px-4 py-3 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                                            />
+                                        </div>
+                                        <div className="mt-3 sm:mt-0 sm:ml-3">
+                                            <button
+                                                type="submit"
+                                                className="block w-full rounded-md bg-gradient-to-r from-teal-500 to-cyan-600 py-3 px-4 font-medium text-white shadow hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                                            >
+                                                Start free trial
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p className="mt-3 text-sm text-gray-300 sm:mt-4">
+                                        Start your free 14-day trial, no credit card necessary. By providing your
+                                        email, you agree to
+                                        our{' '}
+                                        <a href="#" className="font-medium text-white">
+                                            terms of service
+                                        </a>
+                                        .
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mt-12 -mb-16 sm:-mb-48 lg:relative lg:m-0">
+                        <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+                            {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
+                            <img
+                                className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
+                                src="https://tailwindui.com/img/component-images/cloud-illustration-teal-cyan.svg"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
-        </Container>
+        </div>
     )
 }

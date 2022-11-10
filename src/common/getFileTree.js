@@ -7,8 +7,7 @@ const INPUT_FILE_EN = '../pages/docs/en'
 const OUTPUT_FILE_ZH = '../constant/zh/navigation.js'
 const OUTPUT_FILE_EN = '../constant/en/navigation.js'
 
-let fileTree_zh = []
-let fileTree_en = []
+let fileTree_zh ,fileTree_en
 
 function fileDisplay(dirPath, arr) {
     let filesList = fs.readdirSync(dirPath);

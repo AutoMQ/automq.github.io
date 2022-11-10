@@ -34,7 +34,7 @@ function getNavigation(navigation, pathname, list = [], handleClick, level) {
                             }}
                             className="flex-shrink-0 h-6 mr-5 flex flex-row justify-center items-center cursor-pointer select-none">
                             <Image
-                                className={clsx('relative w-4 h-auto transition-all opacity-60 ',
+                                className={clsx('relative w-4 h-auto transition-all opacity-60 hover:opacity-40 hover:rounded',
                                     list.includes(item.title) ? 'rotate-90' : ''
                                 )}
                                 src={arrow}
