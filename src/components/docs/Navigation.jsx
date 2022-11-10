@@ -13,8 +13,9 @@ function getNavigation(navigation, pathname, list = [], handleClick, level) {
             return (
                 <ul key={item.title}
                     role="list"
-                    className={`mt-2 space-y-2 lg:mt-4 lg:space-y-4 lg:border-slate-200 list-none pl-2`}>
+                    className={`mt-2 space-y-2 lg:mt-4 lg:space-y-4 lg:border-slate-200 list-none pl-2 dark:border-slate-800`}>
                     <div
+                        onClick={() => handleClick(item)}
                         className={clsx(`flex flex-row justify-between cursor-pointer text-slate-900`,
                             item.hasOwnProperty('href') && item.href === pathname ?
                                 "font-semibold text-sky-500"
@@ -22,7 +23,7 @@ function getNavigation(navigation, pathname, list = [], handleClick, level) {
                         )}>
                         <Link
                             href={item.href}
-                            className="truncate w-2/3"
+                            className="truncate w-2/3 dark:text-white"
                         >
                             {item.title}
                         </Link>
@@ -51,10 +52,10 @@ function getNavigation(navigation, pathname, list = [], handleClick, level) {
                         onClick={() => handleClick(item)}
                         href={item.href}
                         className={clsx(
-                            `truncate block before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full`,
+                            `truncate w-2/3 block before:absolute before:-left-1 before:top-1/2 before:h-1.5 before:w-1.5 before:-translate-y-1/2 before:rounded-full`,
                             item.href === pathname
                                 ? 'font-semibold text-sky-500'
-                                : 'before:hidden before:bg-slate-300 hover:text-blue-400'
+                                : 'before:hidden before:bg-slate-300 hover:text-blue-400 dark:text-slate-400 dark:before:bg-slate-700 dark:hover:text-slate-300'
                         )}
                     >
                         {item.title}

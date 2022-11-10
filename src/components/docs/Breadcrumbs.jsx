@@ -2,11 +2,6 @@ import { ChevronRightIcon, HomeIcon } from '@heroicons/react/20/solid'
 import {useRouter} from "next/router";
 import Link from "@/components/Link";
 
-const pages = [
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Project Nero', href: '#', current: true },
-]
-
 
 function getParentId(list, property,value) {
     for (let i in list) {
@@ -25,6 +20,7 @@ function getParentId(list, property,value) {
 export default function Breadcrumbs({nav}) {
     const router = useRouter();
     const pages = getParentId(nav,'href',router.pathname) ?? []
+    console.log(pages)
     return (
         <nav className="flex mb-4" aria-label="Breadcrumb">
             <ol role="list" className="flex items-center space-x-4">

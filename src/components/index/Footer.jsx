@@ -1,61 +1,86 @@
-import {Container} from '@/components/index/Container'
-import {Logo} from '@/components/index/Logo'
-import {NavLink} from '@/components/index/NavLink'
-import {social} from "@/common/social";
-import Link from '../Link'
-import {useLanguageQuery, useTranslation} from 'next-export-i18n';
+import {social} from "@/constant/social";
+import Link from "@/components/Link";
+import * as foot_object from '@/constant/topic'
 
 export function Footer() {
-    const {t} = useTranslation()
-    const [query] = useLanguageQuery()
     return (
-        <footer className="bg-slate-50">
-            <Container>
-                <div className="py-16">
-                    <Logo className="mx-auto h-10 w-auto"/>
-                    <nav className="mt-10 text-sm" aria-label="quick links">
-                        <div className="-my-1 flex justify-center gap-x-6">
-                            <NavLink href="#features">{t('features')}</NavLink>
-                            <NavLink href="#testimonials">{t('testimonials')}</NavLink>
-                            <NavLink href="#pricing">{t('pricing')}</NavLink>
-                            <NavLink
-                                href={`/docs${query?.lang ? '/' + query.lang : '/zh'}/getting-started`}>{t('document')}</NavLink>
-                            <NavLink href='/blog'>{t('blog')}</NavLink>
-                        </div>
-                    </nav>
-                </div>
-                <div
-                    className="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
-                    <div className="flex gap-x-6">
+        <footer className="bg-white dark:bg-black" aria-labelledby="footer-heading">
+            <h2 id="footer-heading" className="sr-only">
+                Footer
+            </h2>
+            <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+                <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
+                    <div className="grid grid-cols-4 gap-8 xl:col-span-4">
                         {
-                            social.map((item) => {
+                            Object.keys(foot_object).map(item => {
                                 return (
-                                    <Link
-                                        href={item.href}
-                                        className="group"
-                                        aria-label="TaxPal on Twitter"
-                                        key={item.name}
-                                    >
-                                        <item.icon aria-hidden="true"
-                                                   className="h-6 w-6 fill-slate-500 group-hover:fill-slate-700"/>
-                                        {/*<svg*/}
-                                        {/*    aria-hidden="true"*/}
-                                        {/*    className="h-6 w-6 fill-slate-500 group-hover:fill-slate-700"*/}
-                                        {/*>*/}
-                                        {/*    <path*/}
-                                        {/*        d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0 0 22 5.92a8.19 8.19 0 0 1-2.357.646 4.118 4.118 0 0 0 1.804-2.27 8.224 8.224 0 0 1-2.605.996 4.107 4.107 0 0 0-6.993 3.743 11.65 11.65 0 0 1-8.457-4.287 4.106 4.106 0 0 0 1.27 5.477A4.073 4.073 0 0 1 2.8 9.713v.052a4.105 4.105 0 0 0 3.292 4.022 4.093 4.093 0 0 1-1.853.07 4.108 4.108 0 0 0 3.834 2.85A8.233 8.233 0 0 1 2 18.407a11.615 11.615 0 0 0 6.29 1.84"/>*/}
-                                        {/*</svg>*/}
-                                    </Link>
+                                    <div key={item}>
+                                        <h3 className="text-base font-medium text-white">{item}</h3>
+                                        <ul role="list" className="mt-4 space-y-4">
+                                            {
+                                                foot_object[item].map(one => {
+                                                    return (
+                                                        <li key={one.title}>
+                                                            <Link href={one.href}
+                                                               className="text-base dark:text-gray-300 hover:text-slate-400 dark:hover:text-white">
+                                                                {one.title}
+                                                            </Link>
+                                                        </li>
+                                                    )
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
                                 )
+
                             })
                         }
                     </div>
-                    <p className="mt-6 text-sm text-slate-500 sm:mt-0">
-                        Copyright &copy; {new Date().getFullYear()} TaxPal. All rights
-                        reserved.
+                </div>
+                <div className="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
+                    <div>
+                        <h3 className="text-base font-medium text-white">Subscribe to our newsletter</h3>
+                        <p className="mt-2 text-base dark:text-gray-300">
+                            The latest news, articles, and resources, sent to your inbox weekly.
+                        </p>
+                    </div>
+                    <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
+                        <label htmlFor="email-address" className="sr-only">
+                            Email address
+                        </label>
+                        <input
+                            type="email"
+                            name="email-address"
+                            id="email-address"
+                            autoComplete="email"
+                            required
+                            className="w-full min-w-0 appearance-none rounded-md border dark:border-transparent bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-white focus:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 sm:max-w-xs"
+                            placeholder="Enter your email"
+                        />
+                        <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+                            <button
+                                type="submit"
+                                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-500 py-2 px-4 text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                            >
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+                    <div className="flex space-x-6 md:order-2">
+                        {social.map((item) => (
+                            <a key={item.name} href={item.href} className="text-gray-400 hover:dark:text-gray-300">
+                                <span className="sr-only">{item.name}</span>
+                                <item.icon className="h-6 w-6" aria-hidden="true"/>
+                            </a>
+                        ))}
+                    </div>
+                    <p className="mt-8 text-base text-gray-400 md:order-1 md:mt-0">
+                        &copy; 2020 Your Company, Inc. All rights reserved.
                     </p>
                 </div>
-            </Container>
+            </div>
         </footer>
     )
 }

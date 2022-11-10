@@ -115,15 +115,15 @@ function Feature({ feature, isActive, className, ...props }) {
       <h3
         className={clsx(
           'mt-6 text-sm font-medium',
-          isActive ? 'text-blue-600' : 'text-slate-600'
+          isActive ? 'text-blue-600' : 'text-slate-600 dark:text-slate-400'
         )}
       >
         {feature.name}
       </h3>
-      <p className="mt-2 font-display text-xl text-slate-900">
+      <p className="mt-2 font-display text-xl text-slate-900 dark:text-white">
         {feature.summary}
       </p>
-      <p className="mt-4 text-sm text-slate-600">{feature.description}</p>
+      <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">{feature.description}</p>
     </div>
   )
 }
@@ -215,10 +215,10 @@ export function SecondaryFeatures() {
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
-          <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl dark:text-slate-200">
             Simplify everyday business tasks.
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
+          <p className="mt-4 text-lg tracking-tight text-slate-700 dark:text-slate-300">
             Because you’d probably be a little confused if we suggested you
             complicate your everyday business tasks instead.
           </p>

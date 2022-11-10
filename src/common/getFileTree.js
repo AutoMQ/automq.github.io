@@ -33,6 +33,7 @@ function fileDisplay(dirPath, arr) {
                 data = fs.readFileSync(`${filePath}/index.md`, 'utf-8')
                 matter = fm(data)
                 fileObj.href = filePath.substring(8)
+                fileObj.title = matter.attributes.title
                 fileObj.rank = matter.attributes.rank ?? 99
             }
             // dir
@@ -58,22 +59,7 @@ function fileDisplay(dirPath, arr) {
 fileTree_zh = fileDisplay(INPUT_FILE_ZH, [])
 fileTree_en = fileDisplay(INPUT_FILE_EN, [])
 
-// delete the file created last time
-fs.unlink(OUTPUT_FILE_EN, (error) => {
-    if (error) {
-        console.log('delete file ERROR\n', error)
-    } else {
-        console.log('success!')
-    }
-})
 
-fs.unlink(OUTPUT_FILE_ZH, (error) => {
-    if (error) {
-        console.log('delete file ERROR\n', error)
-    } else {
-        console.log('success!')
-    }
-})
 // create the new file
 fs.writeFile(OUTPUT_FILE_ZH, 'export const zh_navigation = ' + JSON.stringify(fileTree_zh), err => {
     if (!err) console.log("success~");
@@ -82,11 +68,4 @@ fs.writeFile(OUTPUT_FILE_ZH, 'export const zh_navigation = ' + JSON.stringify(fi
 fs.writeFile(OUTPUT_FILE_EN, 'export const en_navigation = ' + JSON.stringify(fileTree_en), err => {
     if (!err) console.log("success~");
 });
-
-// fs.chmod(OUTPUT_FILE_EN, '0777', (error) => {
-//     console.log(error)
-// })
-// fs.chmod(OUTPUT_FILE_ZH, '0777', (error) => {
-//     console.log(error)
-// })
 

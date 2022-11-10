@@ -1,72 +1,110 @@
 ---
-title: How to contribute
-description: Quidem magni aut exercitationem maxime rerum eos.
-rank: 10
+title: 🕊️ How to Contribute
+description: This section shows the steps of contributing to Bytebase.
 ---
 
-Quasi sapiente voluptates aut minima non doloribus similique quisquam. In quo expedita ipsum nostrum corrupti incidunt. Et aut eligendi ea perferendis.
+This section will walk you through how to contribute to and improve Bytebase.
 
----
+## Contributing docs
 
-## Quis vel iste dicta
+1. Set up your [development environment](https://github.com/bytebase/bytebase.com#-development).
+2. Write the full content in any editor that supports Markdown. e.g. [VSCode](https://code.visualstudio.com/), [Typora](https://typora.io/), or [Notion](https://notion.so/). Make sure to follow the [Document Write Guide](/docs/document-write-guide).
+3. Add your edits to the corresponding folders:
+   1. Add your .md file to the folder `/content/docs/en/xxx`
+   2. Add your images to the folder `/static/docs/xxx`
+   3. Add an entry for the document in `_layout.md`, under the proper section
+4. Run `pnpm dev` start the review server.
+5. Go to [localhost:3000/docs](http://localhost:3000/docs) and check your creation.
+6. If everything looks fine, submit a PR with the changes to [our repo in GitHub](https://github.com/bytebase/bytebase.com).
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
+## Contributing code
 
-### Et pariatur ab quas
+- You can check out issues tagged with [good first issue](https://github.com/bytebase/bytebase/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) and get familiar with the Bytebase codebase.
+- We are maintaining an [online database glossary list](https://bytebase.com/database-glossary/?source=github), you can suggest to add/improve content there.
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+**Note**: Bytebase is quite disciplined on [tech stack](https://github.com/bytebase/bytebase#installation). If you consider bringing a new programming language, framework and any non-trivial external dependency, please [open a discussion]((https://github.com/bytebase/bytebase/discussions)) first.
 
-```js
-/** @type {import('@tailwindlabs/lorem').ipsum} */
-export default {
-  lorem: 'ipsum',
-  dolor: ['sit', 'amet', 'consectetur'],
-  adipiscing: {
-    elit: true,
-  },
-}
-```
+### Start developing
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
+Make sure to check out the Bytebase **[Development Guide](https://github.com/bytebase/bytebase/tree/main/docs/dev-guide.md)** before gettin started.
 
-### Natus aspernatur iste
+Bytebase is built with a curated tech stack. It is optimized for **developer experience** and is very easy to start working on the code:
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+1. It has no external dependency.
+2. It requires zero config.
+3. One command each to start backend & frontend, both with live reload support.
 
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
+**Tech Stack**
 
----
+![techstack](/static/docs/en/how-to-contribute/tech-stack.webp)
 
-## Quos porro ut molestiae
+**Data Model**
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
+![datamodel](/static/docs/en/how-to-contribute/data-model-v1.webp)
 
-### Voluptatem quas possimus
+#### Prerequisites
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+- [Go](https://golang.org/doc/install) (1.16 or later)
+- [pnpm](https://pnpm.io/installation)
+- [Air](https://github.com/cosmtrek/air#installation) (1.27.10 or later). This is for backend live reload.
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
+#### Steps
 
-### Id vitae minima
+1. Install [Air](https://github.com/cosmtrek/air#installation).
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+2. Pull source.
 
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
+   ```bash
+   git clone https://github.com/bytebase/bytebase
+   ```
 
----
+3. Set up pre-commit hooks.
 
-## Vitae laborum maiores
+   - Install [pre-commit](https://pre-commit.com/index.html#install)
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur.
+   ```bash
+    cd bytebase
+    pre-commit install
+    pre-commit install --hook-type commit-msg
+   ```
 
-### Corporis exercitationem
+4. Start backend using air (with live reload).
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+   ```bash
+   air -c scripts/.air.toml
+   ```
 
-Possimus saepe veritatis sint nobis et quam eos. Architecto consequatur odit perferendis fuga eveniet possimus rerum cumque. Ea deleniti voluptatum deserunt voluptatibus ut non iste. Provident nam asperiores vel laboriosam omnis ducimus enim nesciunt quaerat. Minus tempora cupiditate est quod.
+   Change the open file limit if you encounter "error: too many open files".
 
-### Reprehenderit magni
+   ```bash
+   ulimit -n 10240
+   ```
 
-Sit commodi iste iure molestias qui amet voluptatem sed quaerat. Nostrum aut pariatur. Sint ipsa praesentium dolor error cumque velit tenetur quaerat exercitationem. Consequatur et cum atque mollitia qui quia necessitatibus.
+5. Start frontend (with live reload).
 
-Voluptas beatae omnis omnis voluptas. Cum architecto ab sit ad eaque quas quia distinctio. Molestiae aperiam qui quis deleniti soluta quia qui. Dolores nostrum blanditiis libero optio id. Mollitia ad et asperiores quas saepe alias.
+   ```bash
+   cd frontend && pnpm i && pnpm dev
+   ```
+
+Bytebase should now be running at https://localhost:3000. Change either frontend or backend code would trigger live reload.
+
+## Improving Bytebase
+
+There are ways other than writing docs or code to contribute to Bytebase, for example:
+
+### Report a Bug
+
+Found a bug? You can help us improve Bytebase by filing bug reports and creating an Issue. From [the New Issue tab](https://github.com/bytebase/bytebase/issues/new/choose), choose Bug Report.
+Please make sure to include as much information as possible in your report, so that it’s easier for us to reproduce the bug.
+
+### Request a Feature
+
+Is there a feature you would like to see Bytebase support but don’t see it on the [Roadmap](https://github.com/bytebase/bytebase#features) yet? Submit a feature request from the Issue tracker! From [the New Issue tab](https://github.com/bytebase/bytebase/issues/new/choose), choose **Feature request**.
+
+### Start a Discussion
+
+You can initiate discussions and ask your question about Bytebase & related topics on the [Bytebase Discussion board](https://github.com/bytebase/bytebase/discussions).
+
+### Other content
+
+If you have written an article or recorded a video featuring Bytebase, please make sure to let us know at [support@bytebase.com](mailto:support@bytebase.com)!

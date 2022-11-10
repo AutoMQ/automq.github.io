@@ -29,9 +29,10 @@ function collectHeadings(nodes) {
                 node.attributes.id = slu(id)
                 if (node.name === 'h3') {
                     if (!sections[sections.length - 1]) {
-                        throw new Error(
-                            'Cannot add `h3` to table of contents without a preceding `h2`'
-                        )
+                        continue
+                        // throw new Error(
+                        //     'Cannot add `h3` to table of contents without a preceding `h2`'
+                        // )
                     }
                     sections[sections.length - 1].children.push({
                         ...node.attributes,
@@ -127,13 +128,7 @@ const client = algoliasearch('H615PFF29U', '7127b8019f7bc20fb9baed3e9e5cd3e9')
 const index = client.initIndex('test_index')
 index.clearObjects()
 index.saveObjects(algoliaSearch)
-const record = {objectID: 1, name: 'test_record'}
-index.saveObject(record).wait()
 
-// Search the index and print the results
-index
-    .search('test_record')
-    .then(({hits}) => console.log(hits[0]))
 
 
 // fileDisplay(INPUT_FILE_EN, [])

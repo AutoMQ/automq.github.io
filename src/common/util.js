@@ -1,15 +1,22 @@
-import path from 'path'
-let fs = require("fs")
-import fm from 'front-matter'
-import moment from 'moment'
+const path = require('path')
+const fs = require("fs")
+const fm = require('front-matter')
+const moment = require('moment')
 
-export function getFileData(el) {
-    if(!fs.statSync(el).isDirectory()){
+const errorList = ['index.jsx','index.js','.DS_Store']
+
+function getFileData(el) {
+    const stat = fs.statSync(el)
+    if(!stat.isDirectory()){
         const
             data = fs.readFileSync(el,'utf-8'),
             matter = fm(data)
-        const href = el.slice(10,el.length - 3);
-        matter.attributes.href = href
+        const href = el.slice(9,el.length - 3);
+        let hrefList = href.split('/')
+        if(hrefList[0] === ""){
+            hrefList = hrefList.slice(1)
+        }
+        matter.attributes.href = hrefList.join('/')
         const
             roundTo = 10,
             readPerMin = 200,
@@ -24,11 +31,10 @@ export function getFileData(el) {
     }
 }
 
-
-async function listFile(list, dir) {
+function listFile(list, dir) {
     let arr = fs.readdirSync(dir)
     arr.forEach(function (item) {
-        if(item !== 'index.json.json.jsx'){
+        if(!errorList.includes(item)){
             let filePath = path.join(dir, item)
             let stats = fs.statSync(filePath)
             if (stats.isDirectory()) {
@@ -42,10 +48,10 @@ async function listFile(list, dir) {
     return list
 }
 
-export async function getMdInfoList(dir) {
+function getMdInfoList(dir) {
     let dirList = []
     let infoList = []
-    dirList = await listFile(dirList, dir)
+    dirList = listFile(dirList, dir)
     for (const el of dirList) {
         const element = getFileData(el)
         infoList.push(element)
@@ -53,7 +59,7 @@ export async function getMdInfoList(dir) {
     return infoList
 }
 
-export function postTagStyle(tag) {
+function postTagStyle(tag) {
     switch (tag) {
         case "Announcement":
             return "bg-indigo-100 text-indigo-800";
@@ -62,4 +68,9 @@ export function postTagStyle(tag) {
         default:
             return "bg-blue-100 text-blue-800";
     }
+}
+
+module.exports = {
+    getMdInfoList,
+    postTagStyle
 }

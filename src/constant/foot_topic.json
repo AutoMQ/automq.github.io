@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Solutions",
+    "filePath": "../pages/solutions",
+    "distPath": "../constant/topic",
+    "topicPath": "/solutions/"
+  },
+  {
+    "title": "Support",
+    "filePath": "../pages/support",
+    "distPath": "../constant/topic",
+    "topicPath": "/support/"
+  },
+  {
+    "title": "Learn",
+    "filePath": "../pages/learn",
+    "distPath": "../constant/topic",
+    "topicPath": "/learn/"
+  },
+  {
+    "title": "Community",
+    "filePath": "../pages/community",
+    "distPath": "../constant/topic",
+    "topicPath": "/community/"
+  }
+]

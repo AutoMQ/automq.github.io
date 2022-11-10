@@ -104,7 +104,7 @@ export function Header() {
                 <nav className="relative z-50 flex justify-between">
                     <div className="flex items-center md:gap-x-12">
                         <Link href="/" aria-label="Home">
-                            <Logo className="h-10 w-auto"/>
+                            <Logo className="h-10 w-auto dark:"/>
                         </Link>
                         <div className="hidden md:flex md:gap-x-6">
                             <NavLink href='/#features'>{t('features')}</NavLink>
@@ -114,15 +114,16 @@ export function Header() {
                             <NavLink href='/blog'>{t('blog')}</NavLink>
                         </div>
                     </div>
+
                     <div className="flex items-center gap-x-5 md:gap-x-8">
                         <div className="hidden md:block">
                             <LanguageSwitcher lang={'zh'}>
-                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:bg-slate-100 hover:text-slate-900")}>简体中文</span>
+                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:bg-slate-100 hover:text-slate-900 dark:text-white dark:hover:bg-slate-600")}>简体中文</span>
                             </LanguageSwitcher>
                         </div>
                         <div>
                             <LanguageSwitcher lang={'en'}>
-                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:bg-slate-100 hover:text-slate-900")}>English</span>
+                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:bg-slate-100 hover:text-slate-900 dark:text-white dark:hover:bg-slate-600")}>English</span>
                             </LanguageSwitcher>
                         </div>
                         <div className="-mr-1 md:hidden">
