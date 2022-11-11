@@ -9,15 +9,16 @@ import Iot from '@/images/logos/iot.svg'
 import Connect from '@/images/logos/connect.svg'
 import Microservices from '@/images/logos/microservices.svg'
 import Image from "next/future/image";
-import {useTranslation} from "next-export-i18n";
 import {useEffect, useRef} from "react";
 import {updateCls} from '@/common/util'
+import clsx from "clsx";
+import slugify from "slugify";
 
 const capabilities = [
     {
-        title:"Cloud Native",
-        describe:"Born with the cloud, grow with the cloud, infinitely elastic expansion and contraction, K8s friendly",
-        logo:CloudNative
+        title: "Cloud Native",
+        describe: "Born with the cloud, grow with the cloud, infinitely elastic expansion and contraction, K8s friendly",
+        logo: CloudNative
     },
     {
         title: "High Throughput",
@@ -48,9 +49,9 @@ const capabilities = [
 
 const ecosystem = [
     {
-        title:"IoT",
-        describe:"Supports massive Topic requirements, covering cloud-edge-device collaboration scenarios",
-        logo:Iot
+        title: "IoT",
+        describe: "Supports massive Topic requirements, covering cloud-edge-device collaboration scenarios",
+        logo: Iot
     },
     {
         title: "Connect",
@@ -64,24 +65,25 @@ const ecosystem = [
     }
 ]
 
-const cls = "grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16"
+const cls = "col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow dark:bg-black"
 
 
 export default function Benefits() {
-    const refCore = useRef()
-    const refSys = useRef()
-    const {t} = useTranslation();
+    const observer = new IntersectionObserver((entries, observer) => {
+        if(entries[0].isIntersecting){
+            entries.map(item => {
+                item.target.className = cls + " animate-fade-in-y"
+            })
+        }
+    }, {threshold: 0.1})
     useEffect(() => {
-        function onScroll() {
-            updateCls(refCore,cls,"animate-fade-in-y","animate-fade-out-y")
-            updateCls(refSys,cls,"animate-fade-in-y","animate-fade-out-y")
-        }
-        onScroll()
-        window.addEventListener('scroll',onScroll,{passive:true})
-        return () => {
-            window.removeEventListener('scroll',onScroll,{passive: true})
-        }
-    },[])
+        capabilities.map(item => {
+            observer.observe(document.getElementById(slugify(item.title)))
+        })
+        ecosystem.map(item => {
+            observer.observe(document.getElementById(slugify(item.title)))
+        })
+    }, [])
     return (
         <Container className="relative overflow-hidden bg-white dark:bg-black py-32">
             <div className="mx-auto max-w-2xl md:text-center">
@@ -89,13 +91,14 @@ export default function Benefits() {
                     Core Capabilities
                 </h2>
             </div>
-            <ul role="list" ref={refCore}>
+            <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16">
                 {
                     capabilities.map((item) => {
                         return (
                             <li
                                 key={item.title}
-                                className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow dark:bg-black"
+                                id={slugify(item.title)}
+                                className='opacity-0'
                             >
                                 <div className="flex flex-1 flex-col p-8">
                                     <Image className={"mx-auto"} src={item.logo} alt={item.title} unoptimized/>
@@ -112,13 +115,14 @@ export default function Benefits() {
                     Ecosystem
                 </h2>
             </div>
-            <ul role="list" ref={refSys}>
+            <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16">
                 {
                     ecosystem.map((item) => {
                         return (
                             <li
                                 key={item.title}
-                                className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow dark:bg-black"
+                                id={slugify(item.title)}
+                                className='opacity-0'
                             >
                                 <div className="flex flex-1 flex-col p-8">
                                     <Image className={"mx-auto"} src={item.logo} alt={item.title} unoptimized/>

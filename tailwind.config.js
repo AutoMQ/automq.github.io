@@ -50,11 +50,9 @@ module.exports = {
         'fade-out-y': {
           from: {
             opacity: 1,
-            transform : 'translateY(0px)'
           },
           to: {
             opacity: 0,
-            transform: 'translateY(5rem)'
           },
         },
         'fade-in-x-left': {

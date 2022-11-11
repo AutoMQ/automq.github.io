@@ -1,53 +1,97 @@
 import {Container} from "@/components/index/Container";
 import connect from '@/images/logos/connect.svg'
 import Image from "next/future/image";
-import {useEffect, useRef} from "react";
-import {updateCls} from "@/common/util";
+import {useEffect} from "react";
+import slugify from "slugify";
 const clsLeft = 'relative z-1 w-1/2'
 const clsRight = 'w-1/2 h-full md:relative md:bottom-auto flex justify-center'
+
+
+const describeList = [
+    {
+        title:"The database for DevOps",
+        describe:"100% online schema changes deployed automatically from your database branch. Never before has a database been a force multiplier in your software development lifecycle.",
+        info:"Move fast,break nothing",
+        icon:connect
+    },
+    {
+        title:"The database for DevOps",
+        describe:"100% online schema changes deployed automatically from your database branch. Never before has a database been a force multiplier in your software development lifecycle.",
+        info:"Move fast,break nothing",
+        icon:connect
+    },
+    {
+        title:"The database for DevOps",
+        describe:"100% online schema changes deployed automatically from your database branch. Never before has a database been a force multiplier in your software development lifecycle.",
+        info:"Move fast,break nothing",
+        icon:connect
+    },
+    {
+        title:"The database for DevOps",
+        describe:"100% online schema changes deployed automatically from your database branch. Never before has a database been a force multiplier in your software development lifecycle.",
+        info:"Move fast,break nothing",
+        icon:connect
+    }
+]
+
+function OneDescribe({info,index}){
+    return (
+        <div className="relative flex flex-row justify-between place-items-center items-center bg-black mb-32">
+            <div className='opacity-0' id={`${slugify(info.title)}-left-${index}`}>
+                <div className="mb-1 space-y-2 sm:mb-2">
+                    <span className="pipe-trim-left block text-[14px] leading-none text-slate-400">{info.info}</span>
+                    <span className="block text-[24px] font-semibold leading-tight tracking-tight text-white">{info.title}</span>
+                </div>
+                <p className="mb-2 text-[16px] sm:mb-3 text-slate-400">
+                    {info.describe}
+                </p>
+                <span tabIndex="0" role="button"
+                      className="text-white inline-flex cursor-pointer no-underline button-cta border box-border cursor-pointer flex-shrink-0 focus-ring font-semibold group-scope inline-flex items-center justify-center leading-none no-underline overflow-hidden py-1.5 relative rounded-full select-none text-[16px] text-center text-primary transition whitespace-nowrap disabled:border-primary disabled:bg-secondary disabled:pointer-events-none disabled:text-secondary hover:text-primary border-transparent hover:!border-transparent"
+                >Read more
+                    </span>
+                <div>
+
+                </div>
+            </div>
+            <div className='opacity-0' id={`${slugify(info.title)}-right-${index}`}>
+                <div className=''>
+                    <Image src={info.icon} alt={'test'} unoptimized/>
+                </div>
+            </div>
+        </div>
+
+    )
+}
+
 export function Describe() {
-    const refLeft = useRef()
-    const refRight = useRef()
     useEffect(() => {
-        function onScroll() {
-            updateCls(refLeft,clsLeft,"animate-fade-in-x-left","animate-fade-out-x-left")
-            updateCls(refRight,clsRight,"animate-fade-in-x-right","animate-fade-out-x-right")
-        }
-        onScroll()
-        window.addEventListener('scroll',onScroll,{passive:true})
-        return () => {
-            window.removeEventListener('scroll',onScroll,{passive: true})
-        }
+       const observerLeft = new IntersectionObserver((entries, observer) => {
+           if(entries[0].isIntersecting){
+               entries.map(item => {
+                   item.target.className = clsLeft + " animate-fade-in-x-left"
+               })
+           }
+       },{threshold:0.3})
+        const observerRight = new IntersectionObserver((entries, observer) => {
+            if(entries[0].isIntersecting){
+                entries.map(item => {
+                    item.target.className = clsRight + " animate-fade-in-x-right"
+                })
+            }
+        },{threshold:0.3})
+        describeList.map((item,index) => {
+            observerLeft.observe(document.getElementById(`${slugify(item.title)}-left-${index}`))
+            observerRight.observe(document.getElementById(`${slugify(item.title)}-right-${index}`))
+        })
     },[])
     return (
         <div className='relative bg-primary pt-12 pb-16 sm:pt-12 bg-black'>
             <Container className='mb-12 pt-40 sm:mb-12 md:py-5 lg:py-4 xl:py-8 2xl:py-20 overflow-hidden bg-black'>
-                <div className="relative flex flex-row justify-between place-items-center items-center bg-black">
-                    <div ref={refLeft}>
-                        <div className="mb-1 space-y-2 sm:mb-2">
-                            <span className="pipe-trim-left block text-[14px] leading-none text-slate-400">Move fast, break nothing</span>
-                            <span className="block text-[24px] font-semibold leading-tight tracking-tight text-white">The database
-                            <br className="hidden md:inline lg:hidden"/>for DevOps</span>
-                        </div>
-                        <p className="mb-2 text-[16px] sm:mb-3 text-slate-400">
-                            100% online schema changes deployed
-                            automatically from your database branch. Never before has a database been a force multiplier in
-                            your software development lifecycle.
-                        </p>
-                        <span tabIndex="0" role="button"
-                              className="text-white inline-flex cursor-pointer no-underline button-cta border box-border cursor-pointer flex-shrink-0 focus-ring font-semibold group-scope inline-flex items-center justify-center leading-none no-underline overflow-hidden py-1.5 relative rounded-full select-none text-[16px] text-center text-primary transition whitespace-nowrap disabled:border-primary disabled:bg-secondary disabled:pointer-events-none disabled:text-secondary hover:text-primary border-transparent hover:!border-transparent"
-                        >Read more
-                    </span>
-                        <div>
-
-                        </div>
-                    </div>
-                    <div ref={refRight}>
-                        <div className=''>
-                            <Image src={connect} alt={'test'} unoptimized/>
-                        </div>
-                    </div>
-                </div>
+                {
+                    describeList.map((item,index) => {
+                        return <OneDescribe info={item} key={`${slugify(item.title)}-${index}`} index={index}/>
+                    })
+                }
             </Container>
 
         </div>

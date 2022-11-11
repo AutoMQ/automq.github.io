@@ -6,7 +6,6 @@ export function Hero() {
     const {t} = useTranslation()
     return (
         <div className="relative overflow-hidden">
-            <div className='absolute inset-0 bg-gradient-spectrum'></div>
             <div className="bg-black pt-10 sm:pt-16 lg:overflow-hidden lg:pt-8 lg:pb-14">
                 <div className="mx-auto max-w-7xl lg:px-8">
                     <div className="lg:grid lg:grid-cols-2 lg:gap-8">
@@ -17,9 +16,10 @@ export function Hero() {
                                     href="#"
                                     className="inline-flex items-center rounded-full bg-black p-1 pr-2 text-white hover:text-gray-200 sm:text-base lg:text-sm xl:text-base"
                                 >
-                    <span className="rounded-full bg-indigo-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
-                      {t('we-re-hire')}
-                    </span>
+                                    <span
+                                        className="rounded-full bg-indigo-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
+                                      {t('we-re-hire')}
+                                    </span>
                                     <span className="ml-4 text-sm">{t('visit-our-website')}</span>
                                     <ChevronRightIcon className="ml-2 h-5 w-5 text-gray-500" aria-hidden="true"/>
                                 </a>
