@@ -5,11 +5,13 @@ import {Pricing} from "@/components/index/Pricing";
 import {Faqs} from "@/components/index/Faqs";
 import Benefits from "@/components/index/Benefits";
 import {Describe} from "@/components/index/Describe";
+import Supports from "@/components/index/Supports";
 
 const Index = (props) => {
     return (
         <>
             <Hero/>
+            <Supports />
             <Describe />
             <Benefits />
             <PrimaryFeatures/>

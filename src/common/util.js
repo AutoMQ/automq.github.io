@@ -70,21 +70,7 @@ function postTagStyle(tag) {
             return "bg-blue-100 text-blue-800";
     }
 }
-const updateCls = (ref,cls,appear,disappear) => {
-    // the full screen height
-    const screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-    // the screen current topY
-    const wTop = window.scrollY
-    const style = window.getComputedStyle(ref.current)
-    // the element height
-    const height = style.height
-    // the element topY
-    const eTop = window.scrollY + ref.current.getBoundingClientRect().top
-    if(eTop - screenHeight <= wTop) ref.current.className = clsx(cls,appear)
-    if(eTop >= wTop + screenHeight) ref.current.className = clsx(cls,disappear)
-}
 module.exports = {
     getMdInfoList,
-    postTagStyle,
-    updateCls
+    postTagStyle
 }

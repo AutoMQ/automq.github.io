@@ -10,7 +10,6 @@ import Connect from '@/images/logos/connect.svg'
 import Microservices from '@/images/logos/microservices.svg'
 import Image from "next/future/image";
 import {useEffect, useRef} from "react";
-import {updateCls} from '@/common/util'
 import clsx from "clsx";
 import slugify from "slugify";
 
