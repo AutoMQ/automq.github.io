@@ -5,12 +5,12 @@ import {postTagStyle} from "@/common/util";
 
 function OneBlog({info}) {
     return (
-        <div key={info.href} className="flex flex-col overflow-hidden rounded-lg shadow-lg dark:bg-slate-700 dark:border">
+        <div key={info.href} className="flex flex-col overflow-hidden rounded-lg hover:shadow-lg dark:bg-slate-700 dark:border">
             {
                 info?.feature_image && (
-                    <div className="flex-shrink-0">
+                    <div className="flex-shrink-0 overflow-hidden">
                         <Link href={info.href}>
-                            <img className="h-48 w-full object-cover" src={info.feature_image} alt=""/>
+                            <img className="h-48 overflow-hidden w-full object-cover transition hover:scale-110" src={info.feature_image} alt=""/>
                         </Link>
                     </div>
                 )

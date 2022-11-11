@@ -1,5 +1,5 @@
 ---
-title: Architecture guide你好
+title: Architecture guide
 description: Quidem magni aut exercitationem maxime rerum eos.
 rank: 1
 ---

@@ -21,6 +21,14 @@ module.exports = {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     extend: {
+      animation: {
+        'fade-in-y': 'fade-in-y 0.5s linear forwards',
+        'fade-out-y': 'fade-out-y 0.1s linear forwards',
+        'fade-in-x-left' : 'fade-in-x-left 0.5s linear forwards',
+        'fade-out-x-left': 'fade-out-x-left 0.1s linear forwards',
+        'fade-in-x-right' : 'fade-in-x-right 0.5s linear forwards',
+        'fade-out-x-right': 'fade-out-x-right 0.1s linear forwards'
+      },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         display: ['Lexend', ...defaultTheme.fontFamily.sans],
@@ -28,6 +36,68 @@ module.exports = {
       maxWidth: {
         '8xl': '88rem',
       },
+      keyframes: {
+        'fade-in-y': {
+          from: {
+            opacity: 0,
+            transform: 'translateY(5rem)'
+          },
+          to: {
+            opacity: 1,
+            transform : 'translateY(0px)'
+          },
+        },
+        'fade-out-y': {
+          from: {
+            opacity: 1,
+            transform : 'translateY(0px)'
+          },
+          to: {
+            opacity: 0,
+            transform: 'translateY(5rem)'
+          },
+        },
+        'fade-in-x-left': {
+          from: {
+            opacity: 0,
+            transform: 'translateX(-5rem)'
+          },
+          to: {
+            opacity: 1,
+            transform : 'translateX(0px)'
+          },
+        },
+        'fade-in-x-right': {
+          from: {
+            opacity: 0,
+            transform: 'translateX(5rem)'
+          },
+          to: {
+            opacity: 1,
+            transform : 'translateX(0px)'
+          },
+        },
+        'fade-out-x-left': {
+          from: {
+            opacity: 1,
+            transform: 'translateX(0)'
+          },
+          to: {
+            opacity: 1,
+            transform : 'translateX(-5rem)'
+          },
+        },
+        'fade-out-x-right': {
+          from: {
+            opacity: 1,
+            transform: 'translateX(0)'
+          },
+          to: {
+            opacity: 0,
+            transform : 'translateX(5rem)'
+          },
+        },
+      }
     },
   },
   plugins: [require('@tailwindcss/typography')],

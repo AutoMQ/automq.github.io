@@ -10,9 +10,9 @@ const Index = (props) => {
     return (
         <>
             <Hero/>
-            <PrimaryFeatures/>
-            <Benefits />
             <Describe />
+            <Benefits />
+            <PrimaryFeatures/>
             <Testimonials/>
             <Pricing/>
             <Faqs/>

@@ -3,7 +3,7 @@
         "i18n"
     ],
     "i18n-ally.keystyle": "nested",
-    "i18n-ally.sourceLanguage": "zh",
+    "i18n-ally.sourceLanguage": "en",
     "react-i18n.i18nPaths": "public/locales"
     
 }

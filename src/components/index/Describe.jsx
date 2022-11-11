@@ -1,12 +1,29 @@
 import {Container} from "@/components/index/Container";
 import connect from '@/images/logos/connect.svg'
 import Image from "next/future/image";
+import {useEffect, useRef} from "react";
+import {updateCls} from "@/common/util";
+const clsLeft = 'relative z-1 w-1/2'
+const clsRight = 'w-1/2 h-full md:relative md:bottom-auto flex justify-center'
 export function Describe() {
+    const refLeft = useRef()
+    const refRight = useRef()
+    useEffect(() => {
+        function onScroll() {
+            updateCls(refLeft,clsLeft,"animate-fade-in-x-left","animate-fade-out-x-left")
+            updateCls(refRight,clsRight,"animate-fade-in-x-right","animate-fade-out-x-right")
+        }
+        onScroll()
+        window.addEventListener('scroll',onScroll,{passive:true})
+        return () => {
+            window.removeEventListener('scroll',onScroll,{passive: true})
+        }
+    },[])
     return (
-        <div className='relative bg-primary pt-12 pb-16 sm:pt-12 md:pb-0 h-fit bg-black'>
+        <div className='relative bg-primary pt-12 pb-16 sm:pt-12 bg-black'>
             <Container className='mb-12 pt-40 sm:mb-12 md:py-5 lg:py-4 xl:py-8 2xl:py-20 overflow-hidden bg-black'>
                 <div className="relative flex flex-row justify-between place-items-center items-center bg-black">
-                    <div className="relative z-1 w-1/2">
+                    <div ref={refLeft}>
                         <div className="mb-1 space-y-2 sm:mb-2">
                             <span className="pipe-trim-left block text-[14px] leading-none text-slate-400">Move fast, break nothing</span>
                             <span className="block text-[24px] font-semibold leading-tight tracking-tight text-white">The database
@@ -25,7 +42,7 @@ export function Describe() {
 
                         </div>
                     </div>
-                    <div className='w-1/2 h-full md:relative md:bottom-auto flex justify-center'>
+                    <div ref={refRight}>
                         <div className=''>
                             <Image src={connect} alt={'test'} unoptimized/>
                         </div>

@@ -10,7 +10,8 @@ import Connect from '@/images/logos/connect.svg'
 import Microservices from '@/images/logos/microservices.svg'
 import Image from "next/future/image";
 import {useTranslation} from "next-export-i18n";
-
+import {useEffect, useRef} from "react";
+import {updateCls} from '@/common/util'
 
 const capabilities = [
     {
@@ -63,8 +64,24 @@ const ecosystem = [
     }
 ]
 
+const cls = "grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16"
+
+
 export default function Benefits() {
+    const refCore = useRef()
+    const refSys = useRef()
     const {t} = useTranslation();
+    useEffect(() => {
+        function onScroll() {
+            updateCls(refCore,cls,"animate-fade-in-y","animate-fade-out-y")
+            updateCls(refSys,cls,"animate-fade-in-y","animate-fade-out-y")
+        }
+        onScroll()
+        window.addEventListener('scroll',onScroll,{passive:true})
+        return () => {
+            window.removeEventListener('scroll',onScroll,{passive: true})
+        }
+    },[])
     return (
         <Container className="relative overflow-hidden bg-white dark:bg-black py-32">
             <div className="mx-auto max-w-2xl md:text-center">
@@ -72,7 +89,7 @@ export default function Benefits() {
                     Core Capabilities
                 </h2>
             </div>
-            <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16">
+            <ul role="list" ref={refCore}>
                 {
                     capabilities.map((item) => {
                         return (
@@ -95,7 +112,7 @@ export default function Benefits() {
                     Ecosystem
                 </h2>
             </div>
-            <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16">
+            <ul role="list" ref={refSys}>
                 {
                     ecosystem.map((item) => {
                         return (
