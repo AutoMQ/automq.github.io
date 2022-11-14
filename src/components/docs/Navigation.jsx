@@ -1,10 +1,10 @@
-import Image from 'next/future/image'
 import {useRouter} from 'next/router'
 import clsx from 'clsx'
 import {useState} from "react";
 import arrow from '@/images/chevron-right.svg'
 import Link from "@/components/Link";
 import {sortBy} from "lodash";
+import Image from "next/image";
 
 
 function getNavigation(navigation, pathname, list = [], handleClick, level) {

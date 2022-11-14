@@ -3,7 +3,7 @@ import Connect from '@/images/logos/connect.svg'
 import Link from '@/images/logos/link.svg'
 import Tag from '@/images/logos/tag.svg'
 import Schema from '@/images/logos/schema.svg'
-import Image from "next/future/image";
+import Image from "next/image";
 import {useEffect} from "react";
 import slugify from "slugify";
 
@@ -77,14 +77,14 @@ export function Describe() {
                     item.target.className = clsLeft + " animate-fade-in-x-left"
                 })
             }
-        }, {threshold: 0.3})
+        }, {threshold: 0.1})
         const observerRight = new IntersectionObserver((entries, observer) => {
             if (entries[0].isIntersecting) {
                 entries.map(item => {
                     item.target.className = clsRight + " animate-fade-in-x-right"
                 })
             }
-        }, {threshold: 0.3})
+        }, {threshold: 0.1})
         describeList.map((item, index) => {
             observerLeft.observe(document.getElementById(`${slugify(item.title)}-left-${index}`))
             observerRight.observe(document.getElementById(`${slugify(item.title)}-right-${index}`))

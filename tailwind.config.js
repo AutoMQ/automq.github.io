@@ -22,7 +22,7 @@ module.exports = {
     },
     extend: {
       animation: {
-        'fade-in':'fade-in 0.5s linear forwards',
+        'fade-in':'fade-in 1s linear forwards',
         'fade-in-y': 'fade-in-y 0.5s linear forwards',
         'fade-out-y': 'fade-out-y 0.1s linear forwards',
         'fade-in-x-left': 'fade-in-x-left 0.5s linear forwards',

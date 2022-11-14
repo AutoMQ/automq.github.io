@@ -8,7 +8,7 @@ import EcoFriendly from '@/images/logos/eco-friendly.svg'
 import Iot from '@/images/logos/iot.svg'
 import Connect from '@/images/logos/connect.svg'
 import Microservices from '@/images/logos/microservices.svg'
-import Image from "next/future/image";
+import Image from "next/image";
 import {useEffect, useRef} from "react";
 import clsx from "clsx";
 import slugify from "slugify";
