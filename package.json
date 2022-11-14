@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "./start.sh && next dev",
-    "start": "./start.sh && next build && next start",
-    "export": "./start.sh && next build && next export",
-    "lint": "next lint"
+    "dev": "npm run make_file && next dev",
+    "start": "npm run make_file && next build && next start",
+    "export": "npm run make_file && next build && next export",
+    "lint": "next lint",
+    "make_file": "sh ./start.sh"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {

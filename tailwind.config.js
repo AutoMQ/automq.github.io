@@ -22,11 +22,12 @@ module.exports = {
     },
     extend: {
       animation: {
+        'fade-in':'fade-in 0.5s linear forwards',
         'fade-in-y': 'fade-in-y 0.5s linear forwards',
         'fade-out-y': 'fade-out-y 0.1s linear forwards',
-        'fade-in-x-left' : 'fade-in-x-left 0.5s linear forwards',
+        'fade-in-x-left': 'fade-in-x-left 0.5s linear forwards',
         'fade-out-x-left': 'fade-out-x-left 0.1s linear forwards',
-        'fade-in-x-right' : 'fade-in-x-right 0.5s linear forwards',
+        'fade-in-x-right': 'fade-in-x-right 0.5s linear forwards',
         'fade-out-x-right': 'fade-out-x-right 0.1s linear forwards'
       },
       fontFamily: {
@@ -37,6 +38,14 @@ module.exports = {
         '8xl': '88rem',
       },
       keyframes: {
+        "fade-in":{
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
+        },
         'fade-in-y': {
           from: {
             opacity: 0,
@@ -44,7 +53,7 @@ module.exports = {
           },
           to: {
             opacity: 1,
-            transform : 'translateY(0px)'
+            transform: 'translateY(0px)'
           },
         },
         'fade-out-y': {
@@ -62,7 +71,7 @@ module.exports = {
           },
           to: {
             opacity: 1,
-            transform : 'translateX(0px)'
+            transform: 'translateX(0px)'
           },
         },
         'fade-in-x-right': {
@@ -72,7 +81,7 @@ module.exports = {
           },
           to: {
             opacity: 1,
-            transform : 'translateX(0px)'
+            transform: 'translateX(0px)'
           },
         },
         'fade-out-x-left': {
@@ -82,7 +91,7 @@ module.exports = {
           },
           to: {
             opacity: 1,
-            transform : 'translateX(-5rem)'
+            transform: 'translateX(-5rem)'
           },
         },
         'fade-out-x-right': {
@@ -92,7 +101,7 @@ module.exports = {
           },
           to: {
             opacity: 0,
-            transform : 'translateX(5rem)'
+            transform: 'translateX(5rem)'
           },
         },
       }
