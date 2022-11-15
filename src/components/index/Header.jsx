@@ -86,7 +86,7 @@ function MobileNavigation() {
                     >
                         <MobileNavLink href="/#features">{t('features')}</MobileNavLink>
                         <MobileNavLink href="/#testimonials">{t('testimonials')}</MobileNavLink>
-                        <MobileNavLink href="/#pricing">{t('pricing')}</MobileNavLink>
+                        <MobileNavLink href="/pricing">{t('pricing')}</MobileNavLink>
                         <MobileNavLink href={`/docs/${query?.lang ? query.lang + '/' : 'zh/'}getting-started`}>{t('document')}</MobileNavLink>
                         <MobileNavLink href='/blog'>{t('blog')}</MobileNavLink>
                         <LanguageSwitcher lang={'zh'}>
@@ -118,7 +118,7 @@ export function Header() {
                         <div className="hidden md:flex md:gap-x-6">
                             <NavLink href='/#features'>{t('features')}</NavLink>
                             <NavLink href="/#testimonials">{t('testimonials')}</NavLink>
-                            <NavLink href="/#pricing">{t('pricing')}</NavLink>
+                            <NavLink href="/pricing">{t('pricing')}</NavLink>
                             <NavLink href={`/docs/${query?.lang ? query.lang + '/' : 'zh/'}getting-started`}>{t('document')}</NavLink>
                             <NavLink href='/blog'>{t('blog')}</NavLink>
                         </div>
