@@ -1,15 +1,18 @@
-import {Fragment} from 'react'
-import {Popover, Transition} from '@headlessui/react'
+import { Fragment } from 'react'
+import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
-import {Container} from '@/components/index/Container'
-import {Logo} from '@/components/index/Logo'
-import {NavLink} from '@/components/index/NavLink'
-import {useRouter} from "next/router";
+import { Container } from '@/components/index/Container'
+import { Logo } from '@/components/index/Logo'
+import { NavLink } from '@/components/index/NavLink'
+import { useRouter } from "next/router";
 
-import {LanguageSwitcher, useLanguageQuery, useTranslation} from "next-export-i18n";
+import { LanguageSwitcher, useLanguageQuery, useTranslation } from "next-export-i18n";
 import Link from '../Link'
-function MobileNavLink({href, children}) {
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
+
+
+function MobileNavLink({ href, children }) {
     return (
         <Link href={href} className={"block w-full p-2 hover:text-blue-400"}>
             {children}
@@ -17,7 +20,8 @@ function MobileNavLink({href, children}) {
     )
 }
 
-function MobileNavIcon({open}) {
+
+function MobileNavIcon({ open }) {
     return (
         <svg
             aria-hidden="true"
@@ -45,7 +49,7 @@ function MobileNavIcon({open}) {
 }
 
 function MobileNavigation() {
-    const {t} = useTranslation()
+    const { t } = useTranslation()
     const [query] = useLanguageQuery()
     return (
         <Popover>
@@ -53,7 +57,7 @@ function MobileNavigation() {
                 className="relative z-10 flex h-8 w-8 items-center justify-center [&:not(:focus-visible)]:focus:outline-none"
                 aria-label="Toggle Navigation"
             >
-                {({open}) => <MobileNavIcon open={open}/>}
+                {({ open }) => <MobileNavIcon open={open} />}
             </Popover.Button>
             <Transition.Root>
                 <Transition.Child
@@ -65,7 +69,7 @@ function MobileNavigation() {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <Popover.Overlay className="fixed inset-0 bg-slate-300/50"/>
+                    <Popover.Overlay className="fixed inset-0 bg-slate-300/50" />
                 </Transition.Child>
                 <Transition.Child
                     as={Fragment}
@@ -82,10 +86,16 @@ function MobileNavigation() {
                     >
                         <MobileNavLink href="/#features">{t('features')}</MobileNavLink>
                         <MobileNavLink href="/#testimonials">{t('testimonials')}</MobileNavLink>
-                        <MobileNavLink href="/#pricing">{t('pricing')}</MobileNavLink>
+                        <MobileNavLink href="/pricing">{t('pricing')}</MobileNavLink>
                         <MobileNavLink href={`/docs/${query?.lang ? query.lang + '/' : 'zh/'}getting-started`}>{t('document')}</MobileNavLink>
                         <MobileNavLink href='/blog'>{t('blog')}</MobileNavLink>
-                        <hr className="m-2 border-slate-300/40"/>
+                        <LanguageSwitcher lang={'zh'}>
+                            <span className={clsx("rounded-lg py-1 px-2 text-black hover:text-blue-300 text-lg")}>简体中文</span>
+                        </LanguageSwitcher>
+                        <LanguageSwitcher lang={'en'}>
+                            <span className={clsx("rounded-lg py-1 px-2 text-black text-lg hover:text-blue-300")}>English</span>
+                        </LanguageSwitcher>
+                        <hr className="m-2 border-slate-300/40" />
                     </Popover.Panel>
                 </Transition.Child>
             </Transition.Root>
@@ -95,38 +105,38 @@ function MobileNavigation() {
 
 export function Header() {
     const router = useRouter()
-    const {t} = useTranslation()
+    const { t } = useTranslation()
     const [query] = useLanguageQuery();
     return (
-        <header className="py-6 bg-black dark:bg-black">
+        <header className="py-6 bg-black">
             <Container>
                 <nav className="relative z-50 flex justify-between">
                     <div className="flex items-center md:gap-x-12">
                         <Link href="/" aria-label="Home">
-                            <Logo className="h-10 w-auto dark:"/>
+                            <Logo className="h-10 w-auto" />
                         </Link>
                         <div className="hidden md:flex md:gap-x-6">
                             <NavLink href='/#features'>{t('features')}</NavLink>
                             <NavLink href="/#testimonials">{t('testimonials')}</NavLink>
-                            <NavLink href="/#pricing">{t('pricing')}</NavLink>
+                            <NavLink href="/pricing">{t('pricing')}</NavLink>
                             <NavLink href={`/docs/${query?.lang ? query.lang + '/' : 'zh/'}getting-started`}>{t('document')}</NavLink>
                             <NavLink href='/blog'>{t('blog')}</NavLink>
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-x-5 md:gap-x-8">
-                        <div className="hidden md:block">
+                    <div className="items-center gap-x-5 md:gap-x-8 flex">
+                        <div className='hidden md:block'>
                             <LanguageSwitcher lang={'zh'}>
-                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:bg-slate-100 text-white hover:bg-slate-600")}>简体中文</span>
+                                <span className={clsx("rounded-lg py-1 px-2 text-white text-sm hover:text-slate-300")}>简体中文</span>
                             </LanguageSwitcher>
                         </div>
-                        <div>
+                        <div className='hidden md:block'>
                             <LanguageSwitcher lang={'en'}>
-                                <span className={clsx("rounded-lg py-1 px-2 text-sm hover:text-slate-900 text-white hover:bg-slate-600")}>English</span>
+                                <span className={clsx("rounded-lg py-1 px-2 text-white text-sm hover:text-slate-300")}>English</span>
                             </LanguageSwitcher>
                         </div>
                         <div className="-mr-1 md:hidden">
-                          <MobileNavigation />
+                            <MobileNavigation />
                         </div>
                     </div>
                 </nav>

@@ -84,7 +84,7 @@ export default function Benefits() {
         })
     }, [])
     return (
-        <Container className="relative overflow-hidden bg-white dark:bg-black py-32">
+        <Container className="relative overflow-hidden bg-white dark:bg-black py-20">
             <div className="mx-auto max-w-2xl md:text-center">
                 <h2 className="text-center font-display text-3xl tracking-tight text-slate-900 sm:text-5xl dark:text-white">
                     Core Capabilities
