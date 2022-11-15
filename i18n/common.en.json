@@ -2,6 +2,7 @@
   "hi": "Hello",
   "document": "Document",
   "blog": "Blog",
+  "product": "Products",
   "pricing": "Pricing",
   "testimonials": "Testimonials",
   "features": "Features",
@@ -13,5 +14,11 @@
   "xx": "",
   "hero": {
     "title": "Data to enrich your online business"
+  },
+  "price": {
+    "buy": "Buy",
+    "title": "Pricing Plan",
+    "basic": "Basic",
+    "enterprise": "Enterprise"
   }
 }

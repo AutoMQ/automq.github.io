@@ -39,7 +39,6 @@ export function Hero() {
             </div>
             <div className="row-start-1 col-start-[-1] max-w-[80%] ml-[20%] grid justify-end items-end">
                 <img
-                    className=""
                     src="/static/index_pic.svg"
                     alt=""
                 />

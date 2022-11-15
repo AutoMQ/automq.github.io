@@ -2,6 +2,7 @@
   "hi": "你好",
   "blog": "博客",
   "document": "文档",
+  "product": "产品",
   "features": "特性",
   "pricing": "价格",
   "testimonials": "感言",
@@ -12,5 +13,11 @@
   "from-the-blog": "博客",
   "hero": {
     "title": "丰富您在线的数据业务"
+  },
+  "price": {
+    "buy": "购买",
+    "title": "购买计划",
+    "basic": "社区版",
+    "enterprise": "企业版"
   }
 }

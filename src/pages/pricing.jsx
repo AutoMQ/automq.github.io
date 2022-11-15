@@ -1,10 +1,11 @@
 import {Fragment} from 'react'
 import {CheckIcon, ChevronDownIcon, MinusIcon} from '@heroicons/react/20/solid'
+import {useTranslation} from "next-export-i18n";
 
 const tiers = [
-    {name: 'Basic', href: '#', priceMonthly: 9, description: 'Quis suspendisse ut fermentum neque vivamus non tellus.'},
+    {name: 'basic', href: '#', priceMonthly: 9, description: 'Quis suspendisse ut fermentum neque vivamus non tellus.'},
     {
-        name: 'Essential',
+        name: 'enterprise',
         href: '#',
         priceMonthly: 29,
         description: 'Quis eleifend a tincidunt pellentesque. A tempor in sed.',
@@ -14,33 +15,21 @@ const sections = [
     {
         name: 'Features',
         features: [
-            {name: 'Molestie lobortis massa.', tiers: {Basic: true, Essential: true, Premium: true}},
-            {name: 'Urna purus felis.', tiers: {Basic: true, Essential: true, Premium: true}},
-            {name: 'Tellus pulvinar sit dictum.', tiers: {Essential: true, Premium: true}},
-            {name: 'Convallis.', tiers: {Essential: 'Up to 20 users', Premium: 'Up to 50 users'}},
+            {name: 'RPO = 0，RTO = 3s', tiers: {basic: true, enterprise: true}},
+            {name: '单机支持百万量级以上分区数', tiers: {basic: true, enterprise: true}},
+            {name: '生产消息 Latency P95 < 1ms，P9995 < 5ms', tiers: {basic: true, enterprise: true}},
+            {name: '多可用区高可用', tiers: {basic: false, enterprise: true}},
+            {name: '分区数不变前提下无损扩缩容', tiers: {basic: false, enterprise: true}},
+            {name: '灰度消费消息', tiers: {basic: false, enterprise: true}},
+            {name: '支持部署到 SPOT 计算实例', tiers: {basic: false, enterprise: true}},
+            {name: '计算资源级别的租户隔离', tiers: {basic: false, enterprise: true}},
+            {name: '共享存储，收发消息互通', tiers: {basic: false, enterprise: true}},
         ],
-    },
-    {
-        name: 'Reporting',
-        features: [
-            {name: 'Adipiscing.', tiers: {Basic: true, Essential: true, Premium: true}},
-            {name: 'Eget risus integer.', tiers: {Essential: true, Premium: true}},
-            {name: 'Gravida leo urna velit.', tiers: {Premium: true}},
-            {name: 'Elementum ut dapibus mi feugiat cras nisl.', tiers: {Premium: true}},
-        ],
-    },
-    {
-        name: 'Support',
-        features: [
-            {name: 'Sit dignissim.', tiers: {Basic: true, Essential: true, Premium: true}},
-            {name: 'Congue at nibh et.', tiers: {Essential: true, Premium: true}},
-            {name: 'Volutpat feugiat mattis.', tiers: {Essential: true, Premium: true}},
-            {name: 'Tristique pellentesque ornare diam sapien.', tiers: {Premium: true}},
-        ],
-    },
+    }
 ]
 
 export default function Pricing() {
+    const {t} = useTranslation()
     return (
         <div className="bg-white">
             <div className="bg-indigo-900">
@@ -48,8 +37,8 @@ export default function Pricing() {
                 <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                     <div className="px-0 sm:px-4 lg:flex lg:items-center lg:justify-between lg:px-0">
                         <div className="max-w-xl">
-                            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">Pricing
-                                Plans</h2>
+                            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                                {t('price.title')}</h2>
                             <p className="mt-5 text-xl text-indigo-300">
                                 Start building for free, then add a site plan to go live. Account plans unlock
                                 additional features.
@@ -77,7 +66,7 @@ export default function Pricing() {
                                     href={tier.href}
                                     className="mt-6 block w-full rounded-md border border-transparent bg-gradient-to-r from-orange-500 to-pink-500 py-2 text-center text-sm font-semibold text-white shadow hover:to-pink-600"
                                 >
-                                    Buy {tier.name}
+                                    {t('price.buy')} {tier.name}
                                 </a>
                             </div>
 
@@ -134,7 +123,7 @@ export default function Pricing() {
                                     href="#"
                                     className="block w-full rounded-md border border-transparent bg-gradient-to-r from-orange-500 to-pink-500 py-2 text-center text-sm font-semibold text-white shadow hover:to-pink-600"
                                 >
-                                    Buy {tier.name}
+                                    {t('price.buy')} {tier.name}
                                 </a>
                             </div>
                         </section>
@@ -143,7 +132,7 @@ export default function Pricing() {
 
                 {/* lg+ */}
                 <div className="hidden lg:block">
-                    <table className="h-px w-full table-fixed">
+                    <table className="h-px w-full">
                         <caption className="sr-only">Pricing plan comparison</caption>
                         <thead>
                         <tr>
@@ -157,7 +146,7 @@ export default function Pricing() {
                                     className="w-1/4 px-6 pb-4 text-left text-lg font-medium leading-6 text-gray-900"
                                     scope="col"
                                 >
-                                    {tier.name}
+                                    {t(`price.${tier.name}`)}
                                 </th>
                             ))}
                         </tr>
@@ -183,7 +172,7 @@ export default function Pricing() {
                                             href={tier.href}
                                             className="mt-6 block w-full rounded-md border border-transparent bg-gradient-to-r from-orange-500 to-pink-500 py-2 text-center text-sm font-semibold text-white shadow hover:to-pink-600"
                                         >
-                                            Buy {tier.name}
+                                            {t('price.buy')} {t(`price.${tier.name}`)}
                                         </a>
                                     </div>
                                 </td>
@@ -244,7 +233,7 @@ export default function Pricing() {
                                         href="#"
                                         className="block w-full rounded-md border border-transparent bg-gradient-to-r from-orange-500 to-pink-500 py-2 text-center text-sm font-semibold text-white shadow hover:to-pink-600"
                                     >
-                                        Buy {tier.name}
+                                        {t('price.buy')} {t(`price.${tier.name}`)}
                                     </a>
                                 </td>
                             ))}

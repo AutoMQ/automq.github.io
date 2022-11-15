@@ -1,5 +1,5 @@
-let en = require("./en/common.en.json");
-let zh = require("./zh/common.zh.json");
+let en = require("./common.en.json");
+let zh = require("./common.zh.json");
 
 const i18n = {
     translations: {
