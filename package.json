@@ -1,38 +1,43 @@
 {
-  "name": "website_site",
+  "name": "site-v2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "export": "next export",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "npm run make_file && next dev",
+    "start": "npm run make_file && next build && next start",
+    "export": "npm run make_file && next build && next export",
+    "lint": "next lint",
+    "make_file": "sh ./start.sh"
   },
+  "browserslist": "defaults, not ie <= 11",
   "dependencies": {
+    "@docsearch/react": "^3.2.1",
+    "@headlessui/react": "^1.7.2",
+    "@heroicons/react": "^2.0.12",
+    "@markdoc/markdoc": "0.1.7",
+    "@markdoc/next.js": "0.1.6",
+    "@tailwindcss/typography": "^0.5.7",
+    "algoliasearch": "^4.14.2",
+    "autoprefixer": "^10.4.12",
+    "clsx": "^1.2.1",
+    "focus-visible": "^5.2.0",
     "front-matter": "^4.0.2",
     "lodash": "^4.17.21",
-    "mdast-util-from-markdown": "^1.2.0",
-    "micromark": "^3.1.0",
-    "mobx": "^6.6.2",
-    "mobx-react": "^7.5.3",
     "moment": "^2.29.4",
-    "next": "12.3.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "remark": "^14.0.2",
-    "remark-html": "^15.0.1",
-    "remark-toc": "^8.0.1"
+    "next": "^13.0.3",
+    "next-export-i18n": "^2.1.0",
+    "postcss-focus-visible": "^6.0.4",
+    "postcss-import": "^14.1.0",
+    "prism-react-renderer": "^1.3.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "slugify": "^1.6.5",
+    "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.3",
-    "@tailwindcss/line-clamp": "^0.4.2",
-    "@tailwindcss/typography": "^0.5.7",
-    "autoprefixer": "^10.4.12",
-    "eslint": "8.25.0",
-    "eslint-config-next": "12.3.1",
-    "postcss": "^8.4.18",
-    "tailwindcss": "^3.1.8"
+    "eslint": "8.19.0",
+    "eslint-config-next": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13"
   }
 }
