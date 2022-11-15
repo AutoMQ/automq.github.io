@@ -18,9 +18,9 @@
     "topicPath": "/learn/"
   },
   {
-    "title": "Community",
-    "filePath": "../pages/community",
+    "title": "COMPARISONS",
+    "filePath": "../pages/comparisons",
     "distPath": "../constant/topic",
-    "topicPath": "/community/"
+    "topicPath": "/comparisons/"
   }
 ]

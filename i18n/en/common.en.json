@@ -6,8 +6,12 @@
   "testimonials": "Testimonials",
   "features": "Features",
   "we-re-hire": "We're hiring",
-  "visit-our-website": "Visit our carerrs page",
-  "a-better-way-to": "A better wawy to",
+  "visit-our-website": "Visit our website page",
+  "a-better-way-to": "A better way to",
   "ship-web-apps": "ship web apps",
-  "from-the-blog": "From the blog"
+  "from-the-blog": "From the blog",
+  "xx": "",
+  "hero": {
+    "title": "Data to enrich your online business"
+  }
 }

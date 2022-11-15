@@ -31,7 +31,7 @@ module.exports = {
         'fade-out-x-right': 'fade-out-x-right 0.1s linear forwards'
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Helvetica','Arial','Microsoft Yahei','微软雅黑','STXihei','华文细黑','sans-serif', ...defaultTheme.fontFamily.sans],
         display: ['Lexend', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: {

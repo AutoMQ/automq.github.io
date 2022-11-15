@@ -7,34 +7,27 @@ import { Container } from '@/components/index/Container'
 import backgroundImage from '@/images/background-features.jpg'
 import screenshotExpenses from '@/images/screenshots/expenses.png'
 import screenshotPayroll from '@/images/screenshots/payroll.png'
-import screenshotReporting from '@/images/screenshots/reporting.png'
 import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'PRO = 0, RTO = 3s',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+      "充分利用云厂商的块存储和对象存储的高可靠和高可用能力，即使整个集群全部宕机也能保证 RPO = 0，至多 2/3 的机器同时宕机，也能在 3s 内恢复服务。",
     image: screenshotPayroll,
   },
   {
-    title: 'Claim expenses',
+    title: '单机支持百万量级以上分区数',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+      "通过绕过文件系统，采用 SPDK 读写块设备，单机分区数量几乎无上限。",
     image: screenshotExpenses,
   },
   {
-    title: 'VAT handling',
+    title: '生产消息 Latency P95 < 1ms, P9995 < 5ms',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+      "通过极简架构和云厂商新技术的充分整合，让整个消息生产链路极少发生抖动，特别适合秒杀、证券撮合类交易。",
     image: screenshotVatReturns,
-  },
-  {
-    title: 'Reporting',
-    description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
-    image: screenshotReporting,
-  },
+  }
 ]
 
 export function PrimaryFeatures() {
@@ -77,6 +70,9 @@ export function PrimaryFeatures() {
           <p className="mt-6 text-lg tracking-tight text-blue-100">
             Well everything you need if you aren’t that picky about minor
             details like tax compliance.
+          </p>
+          <p className='text-slate-100 cursor-pointer pt-12'>
+            View all features
           </p>
         </div>
         <Tab.Group
