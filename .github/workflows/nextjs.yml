@@ -73,7 +73,7 @@ jobs:
       - name: Install dependencies
         run: npm run install
       - name: Static HTML export with Next.js
-        run:  next export
+        run:  npm run export
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
