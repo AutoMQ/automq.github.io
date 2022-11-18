@@ -1,4 +1,6 @@
+import boost from '@/images/boost-ui.jpg'
 import {Container} from "@/components/index/Container";
+import Image from "next/image";
 
 export function Introduction() {
     return (
@@ -17,7 +19,9 @@ export function Introduction() {
                         with our technology
                     </div>
                 </div>
-                <div></div>
+                <div>
+                    <Image src={boost} alt={'boost'} />
+                </div>
                 <div></div>
             </Container>
         </section>

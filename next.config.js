@@ -8,7 +8,7 @@ const nextConfig = {
     pageExtensions: ['js', 'jsx', 'md'],
     swcMinify: true,
     output: "standalone",
-    basePath:env === 'dev' ? '/site' : '',
+    // basePath:env === 'dev' ? '/site' : '',
     experimental: {
         newNextLinkBehavior: true,
         scrollRestoration: true,

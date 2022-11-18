@@ -1,6 +1,5 @@
 import lArrow from '@/images/svg/leftArrow.svg'
 import rArrow from '@/images/svg/rightArrow.svg'
-import p from '@/images/picture.jpeg'
 import {useState} from "react";
 import clsx from "clsx";
 import Image from "next/image";
@@ -30,8 +29,8 @@ const list = [
 export function IntroList() {
     const [current, setCurrent] = useState(0)
     return (
-        <div className='w-full bg-white'>
-            <div className='px-12 max-w-[1280px] grid grid-cols-12 gap-4 mx-auto mt-12'>
+        <div className='w-full bg-white mt-12'>
+            <div className='px-12 max-w-[1280px] grid grid-cols-12 gap-4 mx-auto'>
                 <div className='hidden md:block col-span-4 pt-6 sticky top-1.5 h-fit'>
                     <div className='text-pink-500 mb-6'>
                         +
