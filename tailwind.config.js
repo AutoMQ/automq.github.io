@@ -22,46 +22,35 @@ module.exports = {
     },
     extend: {
       animation: {
+        'animate-cycle':"animate-cycle 10s linear infinite",
         'fade-in':'fade-in 1s linear forwards',
-        'fade-in-y': 'fade-in-y 0.5s linear forwards',
-        'fade-out-y': 'fade-out-y 0.1s linear forwards',
         'fade-in-x-left': 'fade-in-x-left 0.5s linear forwards',
         'fade-out-x-left': 'fade-out-x-left 0.1s linear forwards',
         'fade-in-x-right': 'fade-in-x-right 0.5s linear forwards',
         'fade-out-x-right': 'fade-out-x-right 0.1s linear forwards'
       },
       fontFamily: {
-        sans: [...defaultTheme.fontFamily.sans],
+        sans: ['-apple-system','BlinkMacSystemFont',"Segoe UI",'Helvetica','Arial','sans-serif',"Apple Color Emoji","Segoe UI Emoji",...defaultTheme.fontFamily.sans],
         display: [...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
         '8xl': '88rem',
       },
       keyframes: {
+        "animate-cycle":{
+          from:{
+            transform: 'translateX(0)'
+          },
+          to:{
+            transform: 'translateX(-100%)'
+          }
+        },
         "fade-in":{
           from: {
             opacity: 0,
           },
           to: {
             opacity: 1,
-          },
-        },
-        'fade-in-y': {
-          from: {
-            opacity: 0,
-            transform: 'translateY(5rem)'
-          },
-          to: {
-            opacity: 1,
-            transform: 'translateY(0px)'
-          },
-        },
-        'fade-out-y': {
-          from: {
-            opacity: 1,
-          },
-          to: {
-            opacity: 0,
           },
         },
         'fade-in-x-left': {

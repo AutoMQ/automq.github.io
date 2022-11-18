@@ -5,6 +5,8 @@ import {Faqs} from "@/components/index/Faqs";
 import Benefits from "@/components/index/Benefits";
 import {Describe} from "@/components/index/Describe";
 import Supports from "@/components/index/Supports";
+import {IntroList} from "@/components/index/IntroList";
+import {Introduction} from "@/components/index/Introduction";
 
 const Index = (props) => {
     return (
@@ -12,7 +14,9 @@ const Index = (props) => {
             <Hero/>
             <Supports />
             <Describe />
-            <Benefits />
+            {/*<Benefits />*/}
+            <IntroList />
+            {/*<Introduction />*/}
             <PrimaryFeatures/>
             <Testimonials/>
             <Faqs/>

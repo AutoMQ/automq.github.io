@@ -14,7 +14,7 @@ export default function Home(props) {
         />
       </Head>
       <Header />
-      <main>
+      <main className='overflow-x-hidden'>
           {props.children}
       </main>
       <Footer />

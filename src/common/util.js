@@ -2,7 +2,6 @@ const path = require('path')
 const fs = require("fs")
 const fm = require('front-matter')
 const moment = require('moment')
-const {clsx} = require("clsx");
 
 const errorList = ['index.jsx','index.js','.DS_Store']
 

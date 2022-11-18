@@ -9,8 +9,6 @@ import Iot from '@/images/logos/iot.svg'
 import Connect from '@/images/logos/connect.svg'
 import Microservices from '@/images/logos/microservices.svg'
 import Image from "next/image";
-import {useEffect, useRef} from "react";
-import clsx from "clsx";
 import slugify from "slugify";
 
 const capabilities = [
@@ -64,25 +62,9 @@ const ecosystem = [
     }
 ]
 
-const cls = "col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow dark:bg-black"
 
 
 export default function Benefits() {
-    const observer = new IntersectionObserver((entries, observer) => {
-        if(entries[0].isIntersecting){
-            entries.map(item => {
-                item.target.className = cls + " animate-fade-in-y"
-            })
-        }
-    }, {threshold: 0.1})
-    useEffect(() => {
-        capabilities.map(item => {
-            observer.observe(document.getElementById(slugify(item.title)))
-        })
-        ecosystem.map(item => {
-            observer.observe(document.getElementById(slugify(item.title)))
-        })
-    }, [])
     return (
         <Container className="relative overflow-hidden bg-white dark:bg-black py-20">
             <div className="mx-auto max-w-2xl md:text-center">
@@ -97,7 +79,7 @@ export default function Benefits() {
                             <li
                                 key={item.title}
                                 id={slugify(item.title)}
-                                className='opacity-0'
+                                className='col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow dark:bg-black'
                             >
                                 <div className="flex flex-1 flex-col p-8">
                                     <Image className={"mx-auto"} src={item.logo} alt={item.title} unoptimized/>
@@ -121,7 +103,7 @@ export default function Benefits() {
                             <li
                                 key={item.title}
                                 id={slugify(item.title)}
-                                className='opacity-0'
+                                className='col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow dark:bg-black'
                             >
                                 <div className="flex flex-1 flex-col p-8">
                                     <Image className={"mx-auto"} src={item.logo} alt={item.title} unoptimized/>

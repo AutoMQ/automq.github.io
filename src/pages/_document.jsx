@@ -44,7 +44,7 @@ export default function Document(props) {
 
   return (
     <Html
-      className="h-full scroll-smooth antialiased [font-feature-settings:'ss01']"
+      className="h-full scroll-smooth"
       lang="en"
     >
       <Head>

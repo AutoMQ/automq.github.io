@@ -126,7 +126,7 @@ function ProductsList() {
     return (
         <Popover>
             <Popover.Button
-                className="inline-block rounded-lg py-1 px-2 text-sm text-white hover:text-red-300 cursor-pointer"
+                className="inline-block rounded-lg py-1 px-2 text-sm text-white hover:text-red-300 cursor-pointer focus:outline-none"
                 aria-label="Toggle Navigation"
             >
                 {({open}) => (
