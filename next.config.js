@@ -1,12 +1,14 @@
 const withMarkdoc = require('@markdoc/next.js')
 
+const env = process.argv[2] === 'build' ? 'dev' : 'deploy'
+console.log(env)
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
     pageExtensions: ['js', 'jsx', 'md'],
     swcMinify: true,
     output: "standalone",
-    basePath:"/site",
+    basePath:env === 'dev' ? '/site' : '',
     experimental: {
         newNextLinkBehavior: true,
         scrollRestoration: true,
