@@ -20,5 +20,9 @@
     "title": "Pricing Plan",
     "basic": "Basic",
     "enterprise": "Enterprise"
+  },
+  "intro":{
+    "related":"Related article",
+    "des":"AutoMQ's describe"
   }
 }

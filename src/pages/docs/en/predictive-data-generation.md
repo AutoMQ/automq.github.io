@@ -1,5 +1,5 @@
 ---
-title: How to contribute
+title: Predictive data generation
 description: Quidem magni aut exercitationem maxime rerum eos.
 ---
 

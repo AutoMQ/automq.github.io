@@ -62,7 +62,10 @@ export default function Toc(props) {
     }
     return (
         <div
-            className="hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
+            className="space-y-4 hidden xl:sticky xl:top-[4.5rem] xl:-mr-6 xl:block xl:h-[calc(100vh-4.5rem)] xl:flex-none xl:overflow-y-auto xl:py-16 xl:pr-6">
+            <div className='text-sm text-gray-500 cursor-pointer'>下载PDF</div>
+            <div className='text-sm text-gray-500 cursor-pointer'>文档反馈</div>
+            <div className='text-sm text-gray-500 cursor-pointer'>社区交流</div>
             <nav aria-labelledby="on-this-page-title" className="w-56">
                 {props.tableOfContents.length > 0 && (
                     <>

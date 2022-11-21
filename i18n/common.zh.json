@@ -19,5 +19,9 @@
     "title": "购买计划",
     "basic": "社区版",
     "enterprise": "企业版"
+  },
+  "intro":{
+    "related":"相关文章",
+    "des":"对AutoMQ相关介绍和描述"
   }
 }

@@ -1,5 +1,5 @@
 ---
-title: How to contribute
+title: Introdution to string theory
 description: Quidem magni aut exercitationem maxime rerum eos.
 ---
 

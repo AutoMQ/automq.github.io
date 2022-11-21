@@ -16,7 +16,7 @@ const Index = (props) => {
             <Describe />
             {/*<Benefits />*/}
             <IntroList />
-            {/*<Introduction />*/}
+            <Introduction />
             <PrimaryFeatures/>
             <Testimonials/>
             <Faqs/>

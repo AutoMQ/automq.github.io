@@ -3,6 +3,7 @@ import rArrow from '@/images/svg/rightArrow.svg'
 import {useState} from "react";
 import clsx from "clsx";
 import Image from "next/image";
+import {useTranslation} from "next-export-i18n";
 
 
 const list = [
@@ -28,15 +29,16 @@ const list = [
 
 export function IntroList() {
     const [current, setCurrent] = useState(0)
+    const {t} = useTranslation();
     return (
-        <div className='w-full bg-white mt-12'>
-            <div className='px-12 max-w-[1280px] grid grid-cols-12 gap-4 mx-auto'>
-                <div className='hidden md:block col-span-4 pt-6 sticky top-1.5 h-fit'>
+        <div className='w-full bg-white py-12'>
+            <div className='relative px-12 max-w-[1280px] grid grid-cols-12 gap-4 mx-auto'>
+                <div className='hidden md:block col-span-4 pt-6'>
                     <div className='text-pink-500 mb-6'>
-                        +
+                        {t('intro.related')}
                     </div>
                     <div className='font-light text-sm'>
-                        xxxxxx
+                        {t('intro.des')}
                     </div>
                 </div>
                 <div className='col-span-full  md:col-start-6 flex flex-col gap-4'>
@@ -48,14 +50,15 @@ export function IntroList() {
                             ))
                         }
                     </div>
-                    <div className='flex flex-row gap-4'>
+                    <div className='flex flex-row gap-8'>
                         {
                             list.map((item, index) => {
                                 return (
                                     <div key={index}
-                                         className={clsx('shadow shadow-white cursor-pointer h-full pb-6 aspect-[1/1.5] min-w-[296px] space-y-4 text-white flex flex-col justify-end px-12 rounded rounded-[24px] duration-200'
+                                         className={clsx('cursor-pointer h-full pb-6 aspect-[1/1.5] min-w-[296px] space-y-4 text-white flex flex-col justify-end px-12 rounded rounded-[24px] duration-200'
                                          )}
                                          style={{
+                                             boxShadow:'10px 10px 20px gray',
                                              background: `url(${item.url})`,
                                              backgroundSize: 'cover',
                                              backgroundRepeat: 'no-repeat',

@@ -7,7 +7,7 @@ const i18n = {
         zh: zh,
     },
     defaultLang: "en",
-    useBrowserDefault: true,
+    // useBrowserDefault: true,
 };
 
 module.exports = i18n;

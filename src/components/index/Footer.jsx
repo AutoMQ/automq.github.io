@@ -10,7 +10,7 @@ export function Footer() {
             </h2>
             <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
                 <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
-                    <div className="grid grid-cols-4 gap-8 xl:col-span-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 xl:col-span-4">
                         {
                             Object.keys(foot_object).map(item => {
                                 return (

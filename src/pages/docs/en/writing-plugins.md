@@ -1,5 +1,5 @@
 ---
-title: How to contribute
+title: Writing plugins
 description: Quidem magni aut exercitationem maxime rerum eos.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: How to contribute
+title: Basics of time-travel
 description: Quidem magni aut exercitationem maxime rerum eos.
 ---
 

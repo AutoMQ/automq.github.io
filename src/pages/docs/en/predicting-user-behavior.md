@@ -1,5 +1,5 @@
 ---
-title: How to contribute
+title: Predicting user behavior
 description: Quidem magni aut exercitationem maxime rerum eos.
 ---
 

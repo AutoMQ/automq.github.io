@@ -22,7 +22,7 @@ module.exports = {
     },
     extend: {
       animation: {
-        'animate-cycle':"animate-cycle 10s linear infinite",
+        'animate-cycle':"animate-cycle 15s linear infinite",
         'fade-in':'fade-in 1s linear forwards',
         'fade-in-x-left': 'fade-in-x-left 0.5s linear forwards',
         'fade-out-x-left': 'fade-out-x-left 0.1s linear forwards',

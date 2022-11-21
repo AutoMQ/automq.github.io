@@ -1,6 +1,7 @@
 ---
-title: How to contribute
+title: Architecture guide
 description: Quidem magni aut exercitationem maxime rerum eos.
+rank: 1
 ---
 
 Quasi sapiente voluptates aut minima non doloribus similique quisquam. In quo expedita ipsum nostrum corrupti incidunt. Et aut eligendi ea perferendis.
