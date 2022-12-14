@@ -30,8 +30,8 @@ module.exports = {
         'fade-out-x-right': 'fade-out-x-right 0.1s linear forwards'
       },
       fontFamily: {
-        sans: ['-apple-system','BlinkMacSystemFont',"Segoe UI",'Helvetica','Arial','sans-serif',"Apple Color Emoji","Segoe UI Emoji",...defaultTheme.fontFamily.sans],
-        display: [...defaultTheme.fontFamily.sans],
+        sans: ['Slack-Circular-Pro',"Helvetica Neue",'Helvetica',"Segoe UI",'Tahoma','Arial','sans-serif'],
+        display: ['Slack-Circular-Pro',"Helvetica Neue",'Helvetica',"Segoe UI",'Tahoma','Arial','sans-serif'],
       },
       maxWidth: {
         '8xl': '88rem',
